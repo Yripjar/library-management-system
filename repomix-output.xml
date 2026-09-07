@@ -1,0 +1,5996 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+client/
+  public/
+    favicon.svg
+    hero-bg.mp4
+    icons.svg
+  src/
+    assets/
+      api.js
+      hero.png
+      react.svg
+      vite.svg
+    components/
+      BookParticles.jsx
+      HeroEffects.jsx
+      HeroScene.jsx
+      Navbar.jsx
+    hooks/
+      useGSAP.js
+      useGSAPTimeline.js
+      useMousePosition.js
+      useScrollTrigger.js
+    pages/
+      AddBook.jsx
+      AdminDashboard.jsx
+      BookForm.jsx
+      BookList.jsx
+      Books.jsx
+      Dashboard.jsx
+      IssueReturn.jsx
+      Landing.jsx
+      QRScanner.jsx
+    shaders/
+      glowShader.glsl
+      particleShader.glsl
+    styles/
+      globals.css
+    api.js
+    App.css
+    App.jsx
+    index.css
+    main.jsx
+  .gitignore
+  eslint.config.js
+  index.html
+  package.json
+  postcss.config.js
+  README.md
+  tailwind.config.js
+  vite.config.js
+server/
+  controllers/
+    bookController.js
+    transactionController.js
+  middleware/
+    validation.js
+  models/
+    Book.js
+    Transaction.js
+  routes/
+    bookRoutes.js
+    transactionRoutes.js
+  .env
+  package.json
+  server.js
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="client/public/favicon.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="46" fill="none" viewBox="0 0 48 46"><path fill="#863bff" d="M25.946 44.938c-.664.845-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.287c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.497 0-3.578-1.842-3.578H1.237c-.92 0-1.456-1.04-.92-1.788L10.013.474c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.579 1.842 3.579h11.377c.943 0 1.473 1.088.89 1.83L25.947 44.94z" style="fill:#863bff;fill:color(display-p3 .5252 .23 1);fill-opacity:1"/><mask id="a" width="48" height="46" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#000" d="M25.842 44.938c-.664.844-2.021.375-2.021-.698V33.937a2.26 2.26 0 0 0-2.262-2.262H10.183c-.92 0-1.456-1.04-.92-1.788l7.48-10.471c1.07-1.498 0-3.579-1.842-3.579H1.133c-.92 0-1.456-1.04-.92-1.787L9.91.473c.214-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.471c-1.07 1.498 0 3.578 1.842 3.578h11.377c.943 0 1.473 1.088.89 1.832L25.843 44.94z" style="fill:#000;fill-opacity:1"/></mask><g mask="url(#a)"><g filter="url(#b)"><ellipse cx="5.508" cy="14.704" fill="#ede6ff" rx="5.508" ry="14.704" style="fill:#ede6ff;fill:color(display-p3 .9275 .9033 1);fill-opacity:1" transform="matrix(.00324 1 1 -.00324 -4.47 31.516)"/></g><g filter="url(#c)"><ellipse cx="10.399" cy="29.851" fill="#ede6ff" rx="10.399" ry="29.851" style="fill:#ede6ff;fill:color(display-p3 .9275 .9033 1);fill-opacity:1" transform="matrix(.00324 1 1 -.00324 -39.328 7.883)"/></g><g filter="url(#d)"><ellipse cx="5.508" cy="30.487" fill="#7e14ff" rx="5.508" ry="30.487" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(89.814 -25.913 -14.639)scale(1 -1)"/></g><g filter="url(#e)"><ellipse cx="5.508" cy="30.599" fill="#7e14ff" rx="5.508" ry="30.599" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(89.814 -32.644 -3.334)scale(1 -1)"/></g><g filter="url(#f)"><ellipse cx="5.508" cy="30.599" fill="#7e14ff" rx="5.508" ry="30.599" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="matrix(.00324 1 1 -.00324 -34.34 30.47)"/></g><g filter="url(#g)"><ellipse cx="14.072" cy="22.078" fill="#ede6ff" rx="14.072" ry="22.078" style="fill:#ede6ff;fill:color(display-p3 .9275 .9033 1);fill-opacity:1" transform="rotate(93.35 24.506 48.493)scale(-1 1)"/></g><g filter="url(#h)"><ellipse cx="3.47" cy="21.501" fill="#7e14ff" rx="3.47" ry="21.501" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(89.009 28.708 47.59)scale(-1 1)"/></g><g filter="url(#i)"><ellipse cx="3.47" cy="21.501" fill="#7e14ff" rx="3.47" ry="21.501" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(89.009 28.708 47.59)scale(-1 1)"/></g><g filter="url(#j)"><ellipse cx=".387" cy="8.972" fill="#7e14ff" rx="4.407" ry="29.108" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(39.51 .387 8.972)"/></g><g filter="url(#k)"><ellipse cx="47.523" cy="-6.092" fill="#7e14ff" rx="4.407" ry="29.108" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(37.892 47.523 -6.092)"/></g><g filter="url(#l)"><ellipse cx="41.412" cy="6.333" fill="#47bfff" rx="5.971" ry="9.665" style="fill:#47bfff;fill:color(display-p3 .2799 .748 1);fill-opacity:1" transform="rotate(37.892 41.412 6.333)"/></g><g filter="url(#m)"><ellipse cx="-1.879" cy="38.332" fill="#7e14ff" rx="4.407" ry="29.108" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(37.892 -1.88 38.332)"/></g><g filter="url(#n)"><ellipse cx="-1.879" cy="38.332" fill="#7e14ff" rx="4.407" ry="29.108" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(37.892 -1.88 38.332)"/></g><g filter="url(#o)"><ellipse cx="35.651" cy="29.907" fill="#7e14ff" rx="4.407" ry="29.108" style="fill:#7e14ff;fill:color(display-p3 .4922 .0767 1);fill-opacity:1" transform="rotate(37.892 35.651 29.907)"/></g><g filter="url(#p)"><ellipse cx="38.418" cy="32.4" fill="#47bfff" rx="5.971" ry="15.297" style="fill:#47bfff;fill:color(display-p3 .2799 .748 1);fill-opacity:1" transform="rotate(37.892 38.418 32.4)"/></g></g><defs><filter id="b" width="60.045" height="41.654" x="-19.77" y="16.149" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="7.659"/></filter><filter id="c" width="90.34" height="51.437" x="-54.613" y="-7.533" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="7.659"/></filter><filter id="d" width="79.355" height="29.4" x="-49.64" y="2.03" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="e" width="79.579" height="29.4" x="-45.045" y="20.029" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="f" width="79.579" height="29.4" x="-43.513" y="21.178" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="g" width="74.749" height="58.852" x="15.756" y="-17.901" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="7.659"/></filter><filter id="h" width="61.377" height="25.362" x="23.548" y="2.284" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="i" width="61.377" height="25.362" x="23.548" y="2.284" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="j" width="56.045" height="63.649" x="-27.636" y="-22.853" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="k" width="54.814" height="64.646" x="20.116" y="-38.415" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="l" width="33.541" height="35.313" x="24.641" y="-11.323" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="m" width="54.814" height="64.646" x="-29.286" y="6.009" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="n" width="54.814" height="64.646" x="-29.286" y="6.009" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="o" width="54.814" height="64.646" x="8.244" y="-2.416" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter><filter id="p" width="39.409" height="43.623" x="18.713" y="10.588" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17158" stdDeviation="4.596"/></filter></defs></svg>
+</file>
+
+<file path="client/public/icons.svg">
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="bluesky-icon" viewBox="0 0 16 17">
+    <g clip-path="url(#bluesky-clip)"><path fill="#08060d" d="M7.75 7.735c-.693-1.348-2.58-3.86-4.334-5.097-1.68-1.187-2.32-.981-2.74-.79C.188 2.065.1 2.812.1 3.251s.241 3.602.398 4.13c.52 1.744 2.367 2.333 4.07 2.145-2.495.37-4.71 1.278-1.805 4.512 3.196 3.309 4.38-.71 4.987-2.746.608 2.036 1.307 5.91 4.93 2.746 2.72-2.746.747-4.143-1.747-4.512 1.702.189 3.55-.4 4.07-2.145.156-.528.397-3.691.397-4.13s-.088-1.186-.575-1.406c-.42-.19-1.06-.395-2.741.79-1.755 1.24-3.64 3.752-4.334 5.099"/></g>
+    <defs><clipPath id="bluesky-clip"><path fill="#fff" d="M.1.85h15.3v15.3H.1z"/></clipPath></defs>
+  </symbol>
+  <symbol id="discord-icon" viewBox="0 0 20 19">
+    <path fill="#08060d" d="M16.224 3.768a14.5 14.5 0 0 0-3.67-1.153c-.158.286-.343.67-.47.976a13.5 13.5 0 0 0-4.067 0c-.128-.306-.317-.69-.476-.976A14.4 14.4 0 0 0 3.868 3.77C1.546 7.28.916 10.703 1.231 14.077a14.7 14.7 0 0 0 4.5 2.306q.545-.748.965-1.587a9.5 9.5 0 0 1-1.518-.74q.191-.14.372-.293c2.927 1.369 6.107 1.369 8.999 0q.183.152.372.294-.723.437-1.52.74.418.838.963 1.588a14.6 14.6 0 0 0 4.504-2.308c.37-3.911-.63-7.302-2.644-10.309m-9.13 8.234c-.878 0-1.599-.82-1.599-1.82 0-.998.705-1.82 1.6-1.82.894 0 1.614.82 1.599 1.82.001 1-.705 1.82-1.6 1.82m5.91 0c-.878 0-1.599-.82-1.599-1.82 0-.998.705-1.82 1.6-1.82.893 0 1.614.82 1.599 1.82 0 1-.706 1.82-1.6 1.82"/>
+  </symbol>
+  <symbol id="documentation-icon" viewBox="0 0 21 20">
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="m15.5 13.333 1.533 1.322c.645.555.967.833.967 1.178s-.322.623-.967 1.179L15.5 18.333m-3.333-5-1.534 1.322c-.644.555-.966.833-.966 1.178s.322.623.966 1.179l1.534 1.321"/>
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M17.167 10.836v-4.32c0-1.41 0-2.117-.224-2.68-.359-.906-1.118-1.621-2.08-1.96-.599-.21-1.349-.21-2.848-.21-2.623 0-3.935 0-4.983.369-1.684.591-3.013 1.842-3.641 3.428C3 6.449 3 7.684 3 10.154v2.122c0 2.558 0 3.838.706 4.726q.306.383.713.671c.76.536 1.79.64 3.581.66"/>
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M3 10a2.78 2.78 0 0 1 2.778-2.778c.555 0 1.209.097 1.748-.047.48-.129.854-.503.982-.982.145-.54.048-1.194.048-1.749a2.78 2.78 0 0 1 2.777-2.777"/>
+  </symbol>
+  <symbol id="github-icon" viewBox="0 0 19 19">
+    <path fill="#08060d" fill-rule="evenodd" d="M9.356 1.85C5.05 1.85 1.57 5.356 1.57 9.694a7.84 7.84 0 0 0 5.324 7.44c.387.079.528-.168.528-.376 0-.182-.013-.805-.013-1.454-2.165.467-2.616-.935-2.616-.935-.349-.91-.864-1.143-.864-1.143-.71-.48.051-.48.051-.48.787.051 1.2.805 1.2.805.695 1.194 1.817.857 2.268.649.064-.507.27-.857.49-1.052-1.728-.182-3.545-.857-3.545-3.87 0-.857.31-1.558.8-2.104-.078-.195-.349-1 .077-2.078 0 0 .657-.208 2.14.805a7.5 7.5 0 0 1 1.946-.26c.657 0 1.328.092 1.946.26 1.483-1.013 2.14-.805 2.14-.805.426 1.078.155 1.883.078 2.078.502.546.799 1.247.799 2.104 0 3.013-1.818 3.675-3.558 3.87.284.247.528.714.528 1.454 0 1.052-.012 1.896-.012 2.156 0 .208.142.455.528.377a7.84 7.84 0 0 0 5.324-7.441c.013-4.338-3.48-7.844-7.773-7.844" clip-rule="evenodd"/>
+  </symbol>
+  <symbol id="social-icon" viewBox="0 0 20 20">
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M12.5 6.667a4.167 4.167 0 1 0-8.334 0 4.167 4.167 0 0 0 8.334 0"/>
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M2.5 16.667a5.833 5.833 0 0 1 8.75-5.053m3.837.474.513 1.035c.07.144.257.282.414.309l.93.155c.596.1.736.536.307.965l-.723.73a.64.64 0 0 0-.152.531l.207.903c.164.715-.213.991-.84.618l-.872-.52a.63.63 0 0 0-.577 0l-.872.52c-.624.373-1.003.094-.84-.618l.207-.903a.64.64 0 0 0-.152-.532l-.723-.729c-.426-.43-.289-.864.306-.964l.93-.156a.64.64 0 0 0 .412-.31l.513-1.034c.28-.562.735-.562 1.012 0"/>
+  </symbol>
+  <symbol id="x-icon" viewBox="0 0 19 19">
+    <path fill="#08060d" fill-rule="evenodd" d="M1.893 1.98c.052.072 1.245 1.769 2.653 3.77l2.892 4.114c.183.261.333.48.333.486s-.068.089-.152.183l-.522.593-.765.867-3.597 4.087c-.375.426-.734.834-.798.905a1 1 0 0 0-.118.148c0 .01.236.017.664.017h.663l.729-.83c.4-.457.796-.906.879-.999a692 692 0 0 0 1.794-2.038c.034-.037.301-.34.594-.675l.551-.624.345-.392a7 7 0 0 1 .34-.374c.006 0 .93 1.306 2.052 2.903l2.084 2.965.045.063h2.275c1.87 0 2.273-.003 2.266-.021-.008-.02-1.098-1.572-3.894-5.547-2.013-2.862-2.28-3.246-2.273-3.266.008-.019.282-.332 2.085-2.38l2-2.274 1.567-1.782c.022-.028-.016-.03-.65-.03h-.674l-.3.342a871 871 0 0 1-1.782 2.025c-.067.075-.405.458-.75.852a100 100 0 0 1-.803.91c-.148.172-.299.344-.99 1.127-.304.343-.32.358-.345.327-.015-.019-.904-1.282-1.976-2.808L6.365 1.85H1.8zm1.782.91 8.078 11.294c.772 1.08 1.413 1.973 1.425 1.984.016.017.241.02 1.05.017l1.03-.004-2.694-3.766L7.796 5.75 5.722 2.852l-1.039-.004-1.039-.004z" clip-rule="evenodd"/>
+  </symbol>
+</svg>
+</file>
+
+<file path="client/src/assets/api.js">
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'http://localhost:5000/api',
+});
+
+export default api;
+</file>
+
+<file path="client/src/assets/react.svg">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="35.93" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 228"><path fill="#00D8FF" d="M210.483 73.824a171.49 171.49 0 0 0-8.24-2.597c.465-1.9.893-3.777 1.273-5.621c6.238-30.281 2.16-54.676-11.769-62.708c-13.355-7.7-35.196.329-57.254 19.526a171.23 171.23 0 0 0-6.375 5.848a155.866 155.866 0 0 0-4.241-3.917C100.759 3.829 77.587-4.822 63.673 3.233C50.33 10.957 46.379 33.89 51.995 62.588a170.974 170.974 0 0 0 1.892 8.48c-3.28.932-6.445 1.924-9.474 2.98C17.309 83.498 0 98.307 0 113.668c0 15.865 18.582 31.778 46.812 41.427a145.52 145.52 0 0 0 6.921 2.165a167.467 167.467 0 0 0-2.01 9.138c-5.354 28.2-1.173 50.591 12.134 58.266c13.744 7.926 36.812-.22 59.273-19.855a145.567 145.567 0 0 0 5.342-4.923a168.064 168.064 0 0 0 6.92 6.314c21.758 18.722 43.246 26.282 56.54 18.586c13.731-7.949 18.194-32.003 12.4-61.268a145.016 145.016 0 0 0-1.535-6.842c1.62-.48 3.21-.974 4.76-1.488c29.348-9.723 48.443-25.443 48.443-41.52c0-15.417-17.868-30.326-45.517-39.844Zm-6.365 70.984c-1.4.463-2.836.91-4.3 1.345c-3.24-10.257-7.612-21.163-12.963-32.432c5.106-11 9.31-21.767 12.459-31.957c2.619.758 5.16 1.557 7.61 2.4c23.69 8.156 38.14 20.213 38.14 29.504c0 9.896-15.606 22.743-40.946 31.14Zm-10.514 20.834c2.562 12.94 2.927 24.64 1.23 33.787c-1.524 8.219-4.59 13.698-8.382 15.893c-8.067 4.67-25.32-1.4-43.927-17.412a156.726 156.726 0 0 1-6.437-5.87c7.214-7.889 14.423-17.06 21.459-27.246c12.376-1.098 24.068-2.894 34.671-5.345a134.17 134.17 0 0 1 1.386 6.193ZM87.276 214.515c-7.882 2.783-14.16 2.863-17.955.675c-8.075-4.657-11.432-22.636-6.853-46.752a156.923 156.923 0 0 1 1.869-8.499c10.486 2.32 22.093 3.988 34.498 4.994c7.084 9.967 14.501 19.128 21.976 27.15a134.668 134.668 0 0 1-4.877 4.492c-9.933 8.682-19.886 14.842-28.658 17.94ZM50.35 144.747c-12.483-4.267-22.792-9.812-29.858-15.863c-6.35-5.437-9.555-10.836-9.555-15.216c0-9.322 13.897-21.212 37.076-29.293c2.813-.98 5.757-1.905 8.812-2.773c3.204 10.42 7.406 21.315 12.477 32.332c-5.137 11.18-9.399 22.249-12.634 32.792a134.718 134.718 0 0 1-6.318-1.979Zm12.378-84.26c-4.811-24.587-1.616-43.134 6.425-47.789c8.564-4.958 27.502 2.111 47.463 19.835a144.318 144.318 0 0 1 3.841 3.545c-7.438 7.987-14.787 17.08-21.808 26.988c-12.04 1.116-23.565 2.908-34.161 5.309a160.342 160.342 0 0 1-1.76-7.887Zm110.427 27.268a347.8 347.8 0 0 0-7.785-12.803c8.168 1.033 15.994 2.404 23.343 4.08c-2.206 7.072-4.956 14.465-8.193 22.045a381.151 381.151 0 0 0-7.365-13.322Zm-45.032-43.861c5.044 5.465 10.096 11.566 15.065 18.186a322.04 322.04 0 0 0-30.257-.006c4.974-6.559 10.069-12.652 15.192-18.18ZM82.802 87.83a323.167 323.167 0 0 0-7.227 13.238c-3.184-7.553-5.909-14.98-8.134-22.152c7.304-1.634 15.093-2.97 23.209-3.984a321.524 321.524 0 0 0-7.848 12.897Zm8.081 65.352c-8.385-.936-16.291-2.203-23.593-3.793c2.26-7.3 5.045-14.885 8.298-22.6a321.187 321.187 0 0 0 7.257 13.246c2.594 4.48 5.28 8.868 8.038 13.147Zm37.542 31.03c-5.184-5.592-10.354-11.779-15.403-18.433c4.902.192 9.899.29 14.978.29c5.218 0 10.376-.117 15.453-.343c-4.985 6.774-10.018 12.97-15.028 18.486Zm52.198-57.817c3.422 7.8 6.306 15.345 8.596 22.52c-7.422 1.694-15.436 3.058-23.88 4.071a382.417 382.417 0 0 0 7.859-13.026a347.403 347.403 0 0 0 7.425-13.565Zm-16.898 8.101a358.557 358.557 0 0 1-12.281 19.815a329.4 329.4 0 0 1-23.444.823c-7.967 0-15.716-.248-23.178-.732a310.202 310.202 0 0 1-12.513-19.846h.001a307.41 307.41 0 0 1-10.923-20.627a310.278 310.278 0 0 1 10.89-20.637l-.001.001a307.318 307.318 0 0 1 12.413-19.761c7.613-.576 15.42-.876 23.31-.876H128c7.926 0 15.743.303 23.354.883a329.357 329.357 0 0 1 12.335 19.695a358.489 358.489 0 0 1 11.036 20.54a329.472 329.472 0 0 1-11 20.722Zm22.56-122.124c8.572 4.944 11.906 24.881 6.52 51.026c-.344 1.668-.73 3.367-1.15 5.09c-10.622-2.452-22.155-4.275-34.23-5.408c-7.034-10.017-14.323-19.124-21.64-27.008a160.789 160.789 0 0 1 5.888-5.4c18.9-16.447 36.564-22.941 44.612-18.3ZM128 90.808c12.625 0 22.86 10.235 22.86 22.86s-10.235 22.86-22.86 22.86s-22.86-10.235-22.86-22.86s10.235-22.86 22.86-22.86Z"></path></svg>
+</file>
+
+<file path="client/src/assets/vite.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="77" height="47" fill="none" aria-labelledby="vite-logo-title" viewBox="0 0 77 47"><title id="vite-logo-title">Vite</title><style>.parenthesis{fill:#000}@media (prefers-color-scheme:dark){.parenthesis{fill:#fff}}</style><path fill="#9135ff" d="M40.151 45.71c-.663.844-2.02.374-2.02-.699V34.708a2.26 2.26 0 0 0-2.262-2.262H24.493c-.92 0-1.457-1.04-.92-1.788l7.479-10.471c1.07-1.498 0-3.578-1.842-3.578H15.443c-.92 0-1.456-1.04-.92-1.788l9.696-13.576c.213-.297.556-.474.92-.474h28.894c.92 0 1.456 1.04.92 1.788l-7.48 10.472c-1.07 1.497 0 3.578 1.842 3.578h11.376c.944 0 1.474 1.087.89 1.83L40.153 45.712z"/><mask id="a" width="48" height="47" x="14" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha"><path fill="#000" d="M40.047 45.71c-.663.843-2.02.374-2.02-.699V34.708a2.26 2.26 0 0 0-2.262-2.262H24.389c-.92 0-1.457-1.04-.92-1.788l7.479-10.472c1.07-1.497 0-3.578-1.842-3.578H15.34c-.92 0-1.456-1.04-.92-1.788l9.696-13.575c.213-.297.556-.474.92-.474H53.93c.92 0 1.456 1.04.92 1.788L47.37 13.03c-1.07 1.498 0 3.578 1.842 3.578h11.376c.944 0 1.474 1.088.89 1.831L40.049 45.712z"/></mask><g mask="url(#a)"><g filter="url(#b)"><ellipse cx="5.508" cy="14.704" fill="#eee6ff" rx="5.508" ry="14.704" transform="rotate(269.814 20.96 11.29)scale(-1 1)"/></g><g filter="url(#c)"><ellipse cx="10.399" cy="29.851" fill="#eee6ff" rx="10.399" ry="29.851" transform="rotate(89.814 -16.902 -8.275)scale(1 -1)"/></g><g filter="url(#d)"><ellipse cx="5.508" cy="30.487" fill="#8900ff" rx="5.508" ry="30.487" transform="rotate(89.814 -19.197 -7.127)scale(1 -1)"/></g><g filter="url(#e)"><ellipse cx="5.508" cy="30.599" fill="#8900ff" rx="5.508" ry="30.599" transform="rotate(89.814 -25.928 4.177)scale(1 -1)"/></g><g filter="url(#f)"><ellipse cx="5.508" cy="30.599" fill="#8900ff" rx="5.508" ry="30.599" transform="rotate(89.814 -25.738 5.52)scale(1 -1)"/></g><g filter="url(#g)"><ellipse cx="14.072" cy="22.078" fill="#eee6ff" rx="14.072" ry="22.078" transform="rotate(93.35 31.245 55.578)scale(-1 1)"/></g><g filter="url(#h)"><ellipse cx="3.47" cy="21.501" fill="#8900ff" rx="3.47" ry="21.501" transform="rotate(89.009 35.419 55.202)scale(-1 1)"/></g><g filter="url(#i)"><ellipse cx="3.47" cy="21.501" fill="#8900ff" rx="3.47" ry="21.501" transform="rotate(89.009 35.419 55.202)scale(-1 1)"/></g><g filter="url(#j)"><ellipse cx="14.592" cy="9.743" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(39.51 14.592 9.743)"/></g><g filter="url(#k)"><ellipse cx="61.728" cy="-5.321" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 61.728 -5.32)"/></g><g filter="url(#l)"><ellipse cx="55.618" cy="7.104" fill="#00c2ff" rx="5.971" ry="9.665" transform="rotate(37.892 55.618 7.104)"/></g><g filter="url(#m)"><ellipse cx="12.326" cy="39.103" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 12.326 39.103)"/></g><g filter="url(#n)"><ellipse cx="12.326" cy="39.103" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 12.326 39.103)"/></g><g filter="url(#o)"><ellipse cx="49.857" cy="30.678" fill="#8900ff" rx="4.407" ry="29.108" transform="rotate(37.892 49.857 30.678)"/></g><g filter="url(#p)"><ellipse cx="52.623" cy="33.171" fill="#00c2ff" rx="5.971" ry="15.297" transform="rotate(37.892 52.623 33.17)"/></g></g><path d="M6.919 0c-9.198 13.166-9.252 33.575 0 46.789h6.215c-9.25-13.214-9.196-33.623 0-46.789zm62.424 0h-6.215c9.198 13.166 9.252 33.575 0 46.789h6.215c9.25-13.214 9.196-33.623 0-46.789" class="parenthesis"/><defs><filter id="b" width="60.045" height="41.654" x="-5.564" y="16.92" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="7.659"/></filter><filter id="c" width="90.34" height="51.437" x="-40.407" y="-6.762" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="7.659"/></filter><filter id="d" width="79.355" height="29.4" x="-35.435" y="2.801" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="e" width="79.579" height="29.4" x="-30.84" y="20.8" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="f" width="79.579" height="29.4" x="-29.307" y="21.949" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="g" width="74.749" height="58.852" x="29.961" y="-17.13" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="7.659"/></filter><filter id="h" width="61.377" height="25.362" x="37.754" y="3.055" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="i" width="61.377" height="25.362" x="37.754" y="3.055" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="j" width="56.045" height="63.649" x="-13.43" y="-22.082" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="k" width="54.814" height="64.646" x="34.321" y="-37.644" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="l" width="33.541" height="35.313" x="38.847" y="-10.552" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="m" width="54.814" height="64.646" x="-15.081" y="6.78" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="n" width="54.814" height="64.646" x="-15.081" y="6.78" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="o" width="54.814" height="64.646" x="22.45" y="-1.645" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter><filter id="p" width="39.409" height="43.623" x="32.919" y="11.36" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur result="effect1_foregroundBlur_2002_17286" stdDeviation="4.596"/></filter></defs></svg>
+</file>
+
+<file path="client/src/components/BookParticles.jsx">
+import { Canvas, useFrame } from '@react-three/fiber';
+import * as THREE from 'three';
+import { useRef, useMemo } from 'react';
+
+function Particles({ count = 200 }) {
+  const points = useRef();
+  const positions = useMemo(() => {
+    const arr = new Float32Array(count * 3);
+    for (let i = 0; i < count * 3; i++) {
+      arr[i] = (Math.random() - 0.5) * 10;
+    }
+    return arr;
+  }, [count]);
+
+  useFrame((state) => {
+    points.current.rotation.y = state.clock.elapsedTime * 0.05;
+  });
+
+  return (
+    <points ref={points}>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+      </bufferGeometry>
+      <pointsMaterial size={0.05} color="#8b5cf6" transparent opacity={0.8} blending={THREE.AdditiveBlending} />
+    </points>
+  );
+}
+
+export default function BookParticles() {
+  return (
+    <Canvas>
+      <Particles />
+    </Canvas>
+  );
+}
+</file>
+
+<file path="client/src/components/HeroEffects.jsx">
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+
+export default function HeroEffects() {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    const particleCount = 50;
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.opacity = Math.random() * 0.5;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+      }
+
+      draw() {
+        ctx.fillStyle = `rgba(147, 51, 234, ${this.opacity})`; // Purple with opacity
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // Create particles
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    const animate = () => {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((p) => {
+        p.update();
+        p.draw();
+      });
+
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return <canvas ref={canvasRef} className="absolute inset-0 z-0" />;
+}
+</file>
+
+<file path="client/src/components/HeroScene.jsx">
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Float, Environment, Stars, OrbitControls } from '@react-three/drei';
+import { useRef } from 'react';
+import * as THREE from 'three';
+
+function FloatingBooks() {
+  const group = useRef();
+  useFrame((state) => {
+    group.current.rotation.y = state.mouse.x * 0.3;
+    group.current.rotation.x = state.mouse.y * 0.2;
+  });
+
+  return (
+    <group ref={group}>
+      {[...Array(5)].map((_, i) => (
+        <Float key={i} speed={2} rotationIntensity={0.5} floatIntensity={1}>
+          <mesh position={[i * 1.5 - 3, 0, 0]}>
+            <boxGeometry args={[0.6, 1.2, 0.1]} />
+            <meshStandardMaterial color={i % 2 === 0 ? '#8b5cf6' : '#06b6d4'} metalness={0.3} roughness={0.4} />
+          </mesh>
+        </Float>
+      ))}
+    </group>
+  );
+}
+
+export default function HeroScene() {
+  return (
+    <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+      <ambientLight intensity={0.4} />
+      <pointLight position={[10, 10, 10]} />
+      <Stars radius={100} depth={50} count={2000} factor={4} fade />
+      <FloatingBooks />
+      <OrbitControls enableZoom={false} enablePan={false} />
+      <Environment preset="city" />
+    </Canvas>
+  );
+}
+</file>
+
+<file path="client/src/components/Navbar.jsx">
+import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import {
+  BookOpen,
+  Menu,
+  X,
+} from 'lucide-react';
+
+export default function Navbar() {
+  const location = useLocation();
+
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 24);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
+  const links = [
+    { to: '/', label: 'Home' },
+    { to: '/books', label: 'Books' },
+    { to: '/add', label: 'Add Book' },
+    { to: '/scan', label: 'Scan' },
+    { to: '/dashboard', label: 'Dashboard' },
+  ];
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-[90] transition-all duration-500 ${
+        scrolled
+          ? 'bg-slate-950/75 backdrop-blur-2xl border-b border-white/[0.07] shadow-xl shadow-black/10'
+          : 'bg-slate-950/25 backdrop-blur-md'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <Link
+          to="/"
+          className="group flex items-center gap-3"
+        >
+          <div className="relative p-2.5 rounded-xl bg-gradient-to-br from-purple-500/20 to-cyan-500/10 border border-white/10 group-hover:border-purple-400/40 transition-all duration-300">
+            <BookOpen className="w-5 h-5 text-purple-300" />
+          </div>
+
+          <span className="text-xl font-black tracking-tight bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+            NexLib
+          </span>
+        </Link>
+
+        {/* Desktop navigation */}
+        <nav className="hidden md:flex items-center gap-1">
+          {links.map((link) => {
+            const active = location.pathname === link.to;
+
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`relative px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                  active
+                    ? 'text-white bg-white/[0.07]'
+                    : 'text-slate-400 hover:text-white hover:bg-white/[0.04]'
+                }`}
+              >
+                {link.label}
+
+                {active && (
+                  <span className="absolute left-1/2 bottom-1 -translate-x-1/2 w-6 h-0.5 rounded-full bg-gradient-to-r from-purple-400 to-cyan-400" />
+                )}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Mobile */}
+        <button
+          onClick={() => setMobileOpen((value) => !value)}
+          className="md:hidden p-2.5 rounded-xl bg-white/[0.04] border border-white/10 text-slate-300"
+        >
+          {mobileOpen ? (
+            <X className="w-5 h-5" />
+          ) : (
+            <Menu className="w-5 h-5" />
+          )}
+        </button>
+      </div>
+
+      {mobileOpen && (
+        <div className="md:hidden border-t border-white/[0.07] bg-slate-950/95 backdrop-blur-2xl">
+          <nav className="max-w-7xl mx-auto px-6 py-4 space-y-1">
+            {links.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`block px-4 py-3 rounded-xl transition-colors ${
+                  location.pathname === link.to
+                    ? 'bg-purple-500/10 text-white'
+                    : 'text-slate-400 hover:bg-white/5 hover:text-white'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}
+</file>
+
+<file path="client/src/hooks/useGSAP.js">
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+/**
+ * useGSAP hook - reuse animation logic.
+ * Provide a function that receives a gsap context.
+ */
+export function useGSAP(buildAnimation, deps = []) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      buildAnimation(gsap, ScrollTrigger);
+    }, ref);
+
+    return () => ctx.revert();
+  }, deps);
+
+  return ref;
+}
+</file>
+
+<file path="client/src/hooks/useGSAPTimeline.js">
+import { useRef, useEffect } from 'react';
+import gsap from 'gsap';
+
+export function useGSAPTimeline(buildTimeline) {
+  const timelineRef = useRef(null);
+
+  useEffect(() => {
+    if (timelineRef.current) timelineRef.current.kill();
+    timelineRef.current = gsap.timeline();
+    buildTimeline(timelineRef.current);
+    return () => timelineRef.current?.kill();
+  }, [buildTimeline]);
+
+  return timelineRef;
+}
+</file>
+
+<file path="client/src/hooks/useMousePosition.js">
+import { useEffect, useState } from 'react';
+
+export function useMousePosition() {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setPosition({ x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  return position;
+}
+</file>
+
+<file path="client/src/hooks/useScrollTrigger.js">
+import { useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+export function useScrollTrigger(triggerRef, animationFn) {
+  useEffect(() => {
+    if (!triggerRef.current) return;
+    const ctx = gsap.context(() => {
+      animationFn();
+    }, triggerRef);
+    return () => ctx.revert();
+  }, [triggerRef, animationFn]);
+}
+</file>
+
+<file path="client/src/pages/AddBook.jsx">
+import { useState } from 'react';
+import api from '../api';
+import gsap from 'gsap';
+import { CheckCircle, Loader2, Plus } from 'lucide-react';
+
+const categories = [
+  'Fiction',
+  'Non-Fiction',
+  'Science',
+  'Technology',
+  'History',
+  'Biography',
+];
+
+export default function AddBook() {
+  const [form, setForm] = useState({
+    title: '',
+    author: '',
+    isbn: '',
+    category: '',
+    quantity: 1,
+  });
+
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setForm((previous) => ({
+      ...previous,
+      [name]: name === 'quantity' ? Number(value) : value,
+    }));
+
+    if (errors[name]) {
+      setErrors((previous) => ({
+        ...previous,
+        [name]: '',
+      }));
+    }
+  };
+
+  const validate = () => {
+    const newErrors = {};
+
+    if (!form.title.trim()) {
+      newErrors.title = 'Title is required';
+    }
+
+    if (!form.author.trim()) {
+      newErrors.author = 'Author is required';
+    }
+
+    if (!form.isbn.trim()) {
+      newErrors.isbn = 'ISBN / Book ID is required';
+    }
+
+    if (!form.category) {
+      newErrors.category = 'Choose a category';
+    }
+
+    if (!form.quantity || form.quantity < 1) {
+      newErrors.quantity = 'At least 1 copy is required';
+    }
+
+    return newErrors;
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const validationErrors = validate();
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+
+      gsap.fromTo(
+        '.error-message',
+        { y: -6, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.35,
+          stagger: 0.05,
+        }
+      );
+
+      return;
+    }
+
+    try {
+      setIsSubmitting(true);
+      setErrors({});
+
+      await api.post('/books', {
+        title: form.title.trim(),
+        author: form.author.trim(),
+        isbn: form.isbn.trim(),
+        category: form.category,
+        totalCopies: Number(form.quantity),
+      });
+
+      setIsSuccess(true);
+
+      gsap.fromTo(
+        '.success-toast',
+        { y: 30, opacity: 0, scale: 0.95 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.5,
+          ease: 'back.out',
+        }
+      );
+
+      setForm({
+        title: '',
+        author: '',
+        isbn: '',
+        category: '',
+        quantity: 1,
+      });
+
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 2200);
+    } catch (err) {
+      setErrors({
+        general:
+          err.response?.data?.message ||
+          err.response?.data?.errors?.[0]?.msg ||
+          'Unable to add book',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const inputClass = (field) => `
+    peer w-full rounded-xl
+    bg-white/[0.045]
+    border ${errors[field] ? 'border-red-500/60' : 'border-white/10'}
+    px-4 py-4 text-white
+    placeholder-transparent
+    outline-none
+    transition-all duration-200
+    focus:border-purple-500/70
+    focus:ring-4 focus:ring-purple-500/10
+  `;
+
+  return (
+    <div className="max-w-2xl mx-auto px-6 py-16">
+
+      <div className="mb-10">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-sm mb-4">
+          <Plus className="w-4 h-4" />
+          Library Collection
+        </div>
+
+        <h1 className="text-4xl md:text-5xl font-black text-white">
+          Add New Book
+        </h1>
+
+        <p className="text-slate-500 mt-3">
+          Add a title to your library and automatically generate its QR identity.
+        </p>
+      </div>
+
+      <form
+        onSubmit={handleSubmit}
+        className="rounded-3xl border border-white/[0.08] bg-white/[0.035] backdrop-blur-xl p-6 md:p-8 shadow-2xl"
+      >
+
+        <div className="space-y-6">
+
+          {/* Title */}
+          <div className="relative">
+            <input
+              id="title"
+              name="title"
+              type="text"
+              value={form.title}
+              onChange={handleChange}
+              className={inputClass('title')}
+              placeholder="Title"
+            />
+
+            <label
+              htmlFor="title"
+              className="absolute left-3 -top-2.5 bg-slate-950 px-2 text-sm text-slate-400"
+            >
+              Title
+            </label>
+
+            {errors.title && (
+              <p className="error-message mt-2 text-sm text-red-400">
+                {errors.title}
+              </p>
+            )}
+          </div>
+
+          {/* Author */}
+          <div className="relative">
+            <input
+              id="author"
+              name="author"
+              type="text"
+              value={form.author}
+              onChange={handleChange}
+              className={inputClass('author')}
+              placeholder="Author"
+            />
+
+            <label
+              htmlFor="author"
+              className="absolute left-3 -top-2.5 bg-slate-950 px-2 text-sm text-slate-400"
+            >
+              Author
+            </label>
+
+            {errors.author && (
+              <p className="error-message mt-2 text-sm text-red-400">
+                {errors.author}
+              </p>
+            )}
+          </div>
+
+          {/* ISBN */}
+          <div className="relative">
+            <input
+              id="isbn"
+              name="isbn"
+              type="text"
+              value={form.isbn}
+              onChange={handleChange}
+              className={inputClass('isbn')}
+              placeholder="ISBN"
+            />
+
+            <label
+              htmlFor="isbn"
+              className="absolute left-3 -top-2.5 bg-slate-950 px-2 text-sm text-slate-400"
+            >
+              ISBN / Book ID
+            </label>
+
+            {errors.isbn && (
+              <p className="error-message mt-2 text-sm text-red-400">
+                {errors.isbn}
+              </p>
+            )}
+          </div>
+
+          {/* Category */}
+          <div className="relative">
+            <select
+              id="category"
+              name="category"
+              value={form.category}
+              onChange={handleChange}
+              className={`w-full appearance-none rounded-xl bg-slate-900 border ${
+                errors.category
+                  ? 'border-red-500/60'
+                  : 'border-white/10'
+              } px-4 py-4 text-white outline-none focus:border-purple-500/70 focus:ring-4 focus:ring-purple-500/10`}
+            >
+              <option value="" className="bg-slate-900 text-white">
+                Select category
+              </option>
+
+              {categories.map((category) => (
+                <option
+                  key={category}
+                  value={category}
+                  className="bg-slate-900 text-white"
+                >
+                  {category}
+                </option>
+              ))}
+            </select>
+
+            <label
+              htmlFor="category"
+              className="absolute left-3 -top-2.5 bg-slate-950 px-2 text-sm text-slate-400"
+            >
+              Category
+            </label>
+
+            {errors.category && (
+              <p className="error-message mt-2 text-sm text-red-400">
+                {errors.category}
+              </p>
+            )}
+          </div>
+
+          {/* Copies */}
+          <div className="relative">
+            <input
+              id="quantity"
+              name="quantity"
+              type="number"
+              min="1"
+              value={form.quantity}
+              onChange={handleChange}
+              className={inputClass('quantity')}
+              placeholder="Quantity"
+            />
+
+            <label
+              htmlFor="quantity"
+              className="absolute left-3 -top-2.5 bg-slate-950 px-2 text-sm text-slate-400"
+            >
+              Total Copies
+            </label>
+
+            {errors.quantity && (
+              <p className="error-message mt-2 text-sm text-red-400">
+                {errors.quantity}
+              </p>
+            )}
+          </div>
+
+          {errors.general && (
+            <div className="error-message rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+              {errors.general}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold hover:scale-[1.01] hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                Adding...
+              </>
+            ) : (
+              <>
+                <Plus className="w-5 h-5" />
+                Add Book
+              </>
+            )}
+          </button>
+
+        </div>
+      </form>
+
+      {isSuccess && (
+        <div className="success-toast fixed bottom-6 right-6 z-[100] flex items-center gap-3 rounded-2xl border border-emerald-400/20 bg-slate-900/95 backdrop-blur-xl px-5 py-4 text-white shadow-2xl">
+          <CheckCircle className="w-5 h-5 text-emerald-400" />
+          Book added successfully.
+        </div>
+      )}
+    </div>
+  );
+}
+</file>
+
+<file path="client/src/pages/AdminDashboard.jsx">
+import { useState, useEffect } from 'react';
+import api from '../api';
+
+function AdminDashboard() {
+  const [stats, setStats] = useState({ totalBooks: 0, availableBooks: 0, issuedBooks: 0, overdueBooks: 0 });
+  const [transactions, setTransactions] = useState([]);
+  const [filterStatus, setFilterStatus] = useState('');
+
+  const fetchStats = async () => {
+    try {
+      const booksRes = await api.get('/books');
+      const transRes = await api.get('/transactions');
+
+      const total = booksRes.data.length;
+      const available = booksRes.data.filter(b => b.availableCopies > 0).length;
+      const issued = total - available;
+      const overdue = transRes.data.filter(
+        t => t.status === 'issued' && t.dueDate && new Date(t.dueDate) < new Date()
+      ).length;
+
+      setStats({
+        totalBooks: total,
+        availableBooks: available,
+        issuedBooks: issued,
+        overdueBooks: overdue,
+      });
+      setTransactions(transRes.data);
+    } catch (err) {
+      alert('Error loading dashboard');
+    }
+  };
+
+  useEffect(() => {
+    fetchStats();
+  }, []);
+
+  const handleExport = async () => {
+    try {
+      const res = await api.get('/transactions/export', { responseType: 'blob' });
+      const url = window.URL.createObjectURL(new Blob([res.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'transactions.csv');
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    } catch (err) {
+      alert('Export failed');
+    }
+  };
+
+  const filteredTransactions = filterStatus
+    ? transactions.filter(t => t.status === filterStatus)
+    : transactions;
+
+  return (
+    <div>
+      <h2 className="mb-4">Admin Dashboard</h2>
+
+      <div className="row g-3 mb-4">
+        <div className="col-md-3">
+          <div className="card text-white bg-primary">
+            <div className="card-body">
+              <h5 className="card-title">Total Books</h5>
+              <h2>{stats.totalBooks}</h2>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-3">
+          <div className="card text-white bg-success">
+            <div className="card-body">
+              <h5 className="card-title">Available</h5>
+              <h2>{stats.availableBooks}</h2>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-3">
+          <div className="card text-white bg-warning">
+            <div className="card-body">
+              <h5 className="card-title">Issued</h5>
+              <h2>{stats.issuedBooks}</h2>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-3">
+          <div className="card text-white bg-danger">
+            <div className="card-body">
+              <h5 className="card-title">Overdue</h5>
+              <h2>{stats.overdueBooks}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <button className="btn btn-success" onClick={handleExport}>Export CSV</button>
+        <select
+          className="form-select"
+          style={{ width: 'auto' }}
+          value={filterStatus}
+          onChange={(e) => setFilterStatus(e.target.value)}
+        >
+          <option value="">All Transactions</option>
+          <option value="issued">Issued</option>
+          <option value="returned">Returned</option>
+        </select>
+      </div>
+
+      <div className="table-responsive">
+        <table className="table table-striped table-hover">
+          <thead className="table-dark">
+            <tr>
+              <th>Book Title</th>
+              <th>Author</th>
+              <th>Borrower</th>
+              <th>Issue Time</th>
+              <th>Return Time</th>
+              <th>Status</th>
+              <th>Overdue Days</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredTransactions.map((t) => {
+              const overdueDays = t.status === 'issued' && t.dueDate && new Date(t.dueDate) < new Date()
+                ? Math.floor((new Date() - new Date(t.dueDate)) / (1000 * 60 * 60 * 24))
+                : 0;
+              return (
+                <tr key={t._id}>
+                  <td>{t.book?.title}</td>
+                  <td>{t.book?.author}</td>
+                  <td>{t.borrowerName}</td>
+                  <td>{new Date(t.issueTimestamp).toLocaleString()}</td>
+                  <td>{t.returnTimestamp ? new Date(t.returnTimestamp).toLocaleString() : '-'}</td>
+                  <td>
+                    <span className={`badge ${t.status === 'issued' ? 'bg-warning text-dark' : 'bg-success'}`}>
+                      {t.status}
+                    </span>
+                  </td>
+                  <td>
+                    {overdueDays > 0 ? <span className="text-danger fw-bold">{overdueDays} days</span> : '-'}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+export default AdminDashboard;
+</file>
+
+<file path="client/src/pages/BookForm.jsx">
+import { useState } from 'react';
+import api from '../api';
+import gsap from 'gsap';
+
+export default function BookForm() {
+  const [form, setForm] = useState({ title: '', author: '', isbn: '', category: '', totalCopies: 1 });
+  const [success, setSuccess] = useState(false);
+
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await api.post('/books', { ...form, totalCopies: Number(form.totalCopies) });
+      setSuccess(true);
+      gsap.fromTo('.success-toast', { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6, ease: 'back.out' });
+      setTimeout(() => setSuccess(false), 2000);
+      setForm({ title: '', author: '', isbn: '', category: '', totalCopies: 1 });
+    } catch (err) {
+      alert(err.response?.data?.message || 'Error');
+    }
+  };
+
+  return (
+    <div className="max-w-xl mx-auto p-8">
+      <h2 className="text-4xl font-bold mb-8">Add New Book</h2>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="relative">
+          <input className="peer w-full bg-slate-800 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-purple-500 text-white" name="title" value={form.title} onChange={handleChange} required placeholder="" />
+          <label className="absolute left-3 -top-2.5 bg-slate-900 px-1 text-sm text-slate-400 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-purple-400">
+            Title
+          </label>
+        </div>
+        {/* Repeat for other fields */}
+        <button type="submit" className="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 to-cyan-500 text-white font-semibold hover:scale-[1.02] transition-transform">
+          Add Book
+        </button>
+      </form>
+      {success && <div className="success-toast fixed bottom-5 right-5 bg-green-500 text-white px-6 py-3 rounded-lg shadow-xl">Book added!</div>}
+    </div>
+  );
+}
+</file>
+
+<file path="client/src/pages/BookList.jsx">
+import { useState, useEffect, useRef } from 'react';
+import api from '../api';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import QRCode from 'react-qr-code';
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function BookList() {
+  const [books, setBooks] = useState([]);
+  const [filters, setFilters] = useState({ title: '', author: '', category: '', availability: '' });
+  const [loading, setLoading] = useState(false);
+  const [qrBook, setQrBook] = useState(null);
+  const cardRefs = useRef([]);
+
+  const fetchBooks = async () => {
+    setLoading(true);
+    try {
+      const params = {};
+      if (filters.title) params.title = filters.title;
+      if (filters.author) params.author = filters.author;
+      if (filters.category) params.category = filters.category;
+      if (filters.availability) params.availability = filters.availability;
+      const res = await api.get('/books', { params });
+      setBooks(res.data);
+    } catch (err) {
+      alert('Error fetching books');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchBooks();
+  }, [filters]);
+
+  useEffect(() => {
+    if (books.length && cardRefs.current.length) {
+      gsap.fromTo(
+        cardRefs.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, stagger: 0.1, duration: 0.6, ease: 'power3.out', overwrite: 'auto' }
+      );
+    }
+  }, [books]);
+
+  const handleDelete = async (id) => {
+    if (window.confirm('Delete this book?')) {
+      try {
+        await api.delete(`/books/${id}`);
+        fetchBooks();
+      } catch (err) {
+        alert('Delete failed');
+      }
+    }
+  };
+
+  return (
+    <div className="p-8 max-w-7xl mx-auto">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+        <h2 className="text-4xl font-extrabold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+          Library Books
+        </h2>
+        <button
+          onClick={fetchBooks}
+          className="mt-4 md:mt-0 px-6 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-medium transition-colors"
+        >
+          🔄 Refresh
+        </button>
+      </div>
+
+      {/* Filters */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <input
+          className="bg-slate-800/80 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-slate-400"
+          placeholder="🔍 Title"
+          value={filters.title}
+          onChange={(e) => setFilters({ ...filters, title: e.target.value })}
+        />
+        <input
+          className="bg-slate-800/80 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-slate-400"
+          placeholder="✍️ Author"
+          value={filters.author}
+          onChange={(e) => setFilters({ ...filters, author: e.target.value })}
+        />
+        <input
+          className="bg-slate-800/80 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-slate-400"
+          placeholder="🏷️ Category"
+          value={filters.category}
+          onChange={(e) => setFilters({ ...filters, category: e.target.value })}
+        />
+        <select
+          className="bg-slate-800/80 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-purple-500 text-white"
+          value={filters.availability}
+          onChange={(e) => setFilters({ ...filters, availability: e.target.value })}
+        >
+          <option value="">All</option>
+          <option value="available">✅ Available</option>
+          <option value="issued">📤 Issued</option>
+        </select>
+      </div>
+
+      {/* Loading */}
+      {loading && (
+        <div className="flex justify-center items-center py-12">
+          <div className="w-12 h-12 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+
+      {/* Book Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {books.map((book, i) => (
+          <div
+            key={book._id}
+            ref={(el) => (cardRefs.current[i] = el)}
+            className="bg-slate-800/80 backdrop-blur rounded-xl p-6 shadow-lg hover:shadow-purple-500/20 hover:-translate-y-1 transition-all duration-300"
+          >
+            <div className="flex justify-between items-start">
+              <h3 className="text-xl font-semibold text-white">{book.title}</h3>
+              <span
+                className={`badge text-xs font-medium px-3 py-1 rounded-full ${
+                  book.availableCopies > 0
+                    ? 'bg-green-500/20 text-green-300'
+                    : 'bg-red-500/20 text-red-300'
+                }`}
+              >
+                {book.availableCopies} / {book.totalCopies}
+              </span>
+            </div>
+            <p className="text-slate-400 mt-1">{book.author}</p>
+            <p className="text-slate-500 text-sm mt-1">ISBN: {book.isbn}</p>
+            <span className="inline-block mt-3 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-sm">
+              {book.category}
+            </span>
+            <div className="flex gap-2 mt-4">
+              <button
+                onClick={() => setQrBook(book)}
+                className="px-4 py-2 rounded-lg bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium transition-colors"
+              >
+                📱 QR
+              </button>
+              <button
+                onClick={() => handleDelete(book._id)}
+                className="px-4 py-2 rounded-lg bg-red-900/60 hover:bg-red-800 text-red-200 text-sm font-medium transition-colors"
+              >
+                🗑️ Delete
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {!loading && books.length === 0 && (
+        <div className="text-center py-12 text-slate-500">No books found.</div>
+      )}
+
+      {/* QR Modal */}
+      {qrBook && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+          <div className="bg-slate-900 rounded-xl p-6 max-w-sm w-full mx-4 shadow-2xl border border-slate-700">
+            <div className="flex justify-between items-center mb-4">
+              <h5 className="text-lg font-semibold text-white">QR Code – {qrBook.title}</h5>
+              <button
+                onClick={() => setQrBook(null)}
+                className="text-slate-400 hover:text-white transition-colors"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="flex flex-col items-center gap-4">
+              <QRCode value={qrBook.qrCodeData} size={200} />
+              <p className="text-xs text-slate-500 break-all text-center">{qrBook.qrCodeData}</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+</file>
+
+<file path="client/src/pages/Books.jsx">
+import { useEffect, useRef, useState } from 'react';
+import api from '../api';
+import gsap from 'gsap';
+import QRCode from 'react-qr-code';
+
+import {
+  Search,
+  Plus,
+  BookOpen,
+  Zap,
+  RefreshCw,
+  Trash2,
+  X,
+  Pencil,
+  Printer,
+  Download,
+  Copy,
+} from 'lucide-react';
+
+import { Link } from 'react-router-dom';
+
+export default function Books() {
+  const [books, setBooks] = useState([]);
+  const [filters, setFilters] = useState({
+    title: '',
+    author: '',
+    category: '',
+    availability: '',
+  });
+
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [qrBook, setQrBook] = useState(null);
+  const [editingBook, setEditingBook] = useState(null);
+  const [saving, setSaving] = useState(false);
+
+  const cardRefs = useRef([]);
+  const qrRef = useRef(null);
+
+  const fetchBooks = async () => {
+    try {
+      setLoading(true);
+      setError('');
+
+      const params = {};
+
+      Object.entries(filters).forEach(([key, value]) => {
+        if (value.trim()) {
+          params[key] = value.trim();
+        }
+      });
+
+      const response = await api.get('/books', {
+        params,
+      });
+
+      setBooks(response.data || []);
+    } catch (err) {
+      console.error(err);
+
+      setError(
+        err.response?.data?.message ||
+          'Unable to load books.'
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fetchBooks();
+    }, 250);
+
+    return () => clearTimeout(timer);
+  }, [filters]);
+
+  useEffect(() => {
+    if (!books.length) return;
+
+    gsap.fromTo(
+      cardRefs.current.filter(Boolean),
+      {
+        opacity: 0,
+        y: 30,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.55,
+        stagger: 0.07,
+        ease: 'power3.out',
+        overwrite: true,
+      }
+    );
+  }, [books]);
+
+  const updateFilter = (name, value) => {
+    setFilters((previous) => ({
+      ...previous,
+      [name]: value,
+    }));
+  };
+
+  const handleDelete = async (id) => {
+    const confirmed = window.confirm(
+      'Delete this book from the library?'
+    );
+
+    if (!confirmed) return;
+
+    try {
+      await api.delete(`/books/${id}`);
+      await fetchBooks();
+    } catch (err) {
+      alert(
+        err.response?.data?.message ||
+          'Delete failed.'
+      );
+    }
+  };
+
+  const handleEdit = (book) => {
+    setEditingBook({
+      _id: book._id,
+      title: book.title,
+      author: book.author,
+      isbn: book.isbn,
+      category: book.category,
+      totalCopies: book.totalCopies,
+      availableCopies: book.availableCopies,
+    });
+  };
+
+  const saveEdit = async (event) => {
+    event.preventDefault();
+
+    try {
+      setSaving(true);
+
+      await api.put(`/books/${editingBook._id}`, {
+        title: editingBook.title,
+        author: editingBook.author,
+        isbn: editingBook.isbn,
+        category: editingBook.category,
+        totalCopies: Number(editingBook.totalCopies),
+      });
+
+      setEditingBook(null);
+      await fetchBooks();
+    } catch (err) {
+      alert(
+        err.response?.data?.message ||
+          'Unable to update book.'
+      );
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const downloadQr = () => {
+    if (!qrRef.current || !qrBook) return;
+
+    const svg = qrRef.current.querySelector('svg');
+
+    if (!svg) return;
+
+    const source =
+      new XMLSerializer().serializeToString(svg);
+
+    const blob = new Blob(
+      [source],
+      {
+        type: 'image/svg+xml;charset=utf-8',
+      }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+
+    link.href = url;
+    link.download = `${qrBook.title
+      .replace(/\s+/g, '-')
+      .toLowerCase()}-qr.svg`;
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    URL.revokeObjectURL(url);
+  };
+
+  const printQr = () => {
+    if (!qrRef.current || !qrBook) return;
+
+    const svg = qrRef.current.querySelector('svg');
+
+    if (!svg) return;
+
+    const svgString =
+      new XMLSerializer().serializeToString(svg);
+
+    const printWindow = window.open(
+      '',
+      '_blank',
+      'width=500,height=650'
+    );
+
+    if (!printWindow) return;
+
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>${qrBook.title} QR</title>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 100vh;
+              margin: 0;
+            }
+
+            .container {
+              text-align: center;
+            }
+
+            svg {
+              width: 280px;
+              height: 280px;
+            }
+
+            h1 {
+              font-size: 24px;
+              margin-bottom: 10px;
+            }
+
+            p {
+              color: #555;
+              font-size: 12px;
+            }
+          </style>
+        </head>
+
+        <body>
+          <div class="container">
+            <h1>${qrBook.title}</h1>
+            ${svgString}
+            <p>${qrBook.qrCodeData}</p>
+          </div>
+        </body>
+      </html>
+    `);
+
+    printWindow.document.close();
+
+    printWindow.onload = () => {
+      printWindow.print();
+    };
+  };
+
+  const copyQr = async () => {
+    if (!qrBook) return;
+
+    try {
+      await navigator.clipboard.writeText(
+        qrBook.qrCodeData
+      );
+
+      alert('QR data copied.');
+    } catch {
+      alert('Unable to copy.');
+    }
+  };
+
+  return (
+    <div className="relative max-w-7xl mx-auto px-6 py-14">
+
+      {/* Ambient light */}
+      <div className="pointer-events-none absolute -top-32 -left-40 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-3xl" />
+
+      {/* Header */}
+      <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+
+        <div>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-sm mb-4">
+            <BookOpen className="w-4 h-4" />
+            Collection
+          </div>
+
+          <h1 className="text-5xl md:text-6xl font-black tracking-tight">
+            Library
+            <span className="block bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              Books
+            </span>
+          </h1>
+
+          <p className="mt-4 text-lg text-slate-500">
+            Explore, update and manage every title in your library.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-3">
+
+          <button
+            onClick={fetchBooks}
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/[0.04] border border-white/10 text-slate-300 hover:bg-white/[0.08] transition-all"
+          >
+            <RefreshCw className="w-4 h-4" />
+            Refresh
+          </button>
+
+          <Link
+            to="/add"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 font-semibold hover:scale-[1.03] transition-transform"
+          >
+            <Plus className="w-4 h-4" />
+            Add Book
+          </Link>
+
+        </div>
+      </div>
+
+      {/* Filters */}
+      <div className="relative mb-10 rounded-3xl border border-white/[0.08] bg-white/[0.035] backdrop-blur-xl p-5">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
+
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-600" />
+
+            <input
+              value={filters.title}
+              onChange={(e) =>
+                updateFilter('title', e.target.value)
+              }
+              placeholder="Search by title..."
+              className="w-full rounded-xl bg-white/[0.04] border border-white/10 pl-11 pr-4 py-3 text-white placeholder-slate-600 outline-none focus:border-purple-500/50 transition-colors"
+            />
+          </div>
+
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-600" />
+
+            <input
+              value={filters.author}
+              onChange={(e) =>
+                updateFilter('author', e.target.value)
+              }
+              placeholder="Search by author..."
+              className="w-full rounded-xl bg-white/[0.04] border border-white/10 pl-11 pr-4 py-3 text-white placeholder-slate-600 outline-none focus:border-purple-500/50 transition-colors"
+            />
+          </div>
+
+          <input
+            value={filters.category}
+            onChange={(e) =>
+              updateFilter('category', e.target.value)
+            }
+            placeholder="Filter by category..."
+            className="rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3 text-white placeholder-slate-600 outline-none focus:border-purple-500/50 transition-colors"
+          />
+
+          <select
+            value={filters.availability}
+            onChange={(e) =>
+              updateFilter(
+                'availability',
+                e.target.value
+              )
+            }
+            className="rounded-xl bg-slate-900 border border-white/10 px-4 py-3 text-white outline-none focus:border-purple-500/50"
+          >
+            <option value="">All availability</option>
+            <option value="available">
+              Available
+            </option>
+            <option value="issued">
+              Completely issued
+            </option>
+          </select>
+
+        </div>
+      </div>
+
+      {/* Error */}
+      {error && (
+        <div className="mb-8 rounded-2xl border border-red-500/20 bg-red-500/10 px-5 py-4 text-red-300">
+          {error}
+        </div>
+      )}
+
+      {/* Loading */}
+      {loading ? (
+        <div className="py-32 flex flex-col items-center">
+          <div className="w-12 h-12 rounded-full border-4 border-purple-500/20 border-t-purple-500 animate-spin" />
+
+          <p className="mt-4 text-slate-600">
+            Loading library...
+          </p>
+        </div>
+      ) : (
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+
+            {books.map((book, index) => {
+              const available =
+                book.availableCopies > 0;
+
+              return (
+                <article
+                  key={book._id}
+                  ref={(element) => {
+                    cardRefs.current[index] =
+                      element;
+                  }}
+                  className="group relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.065] to-white/[0.015] backdrop-blur-xl p-6 hover:-translate-y-2 hover:border-purple-500/30 transition-all duration-500"
+                >
+
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-cyan-500/0 group-hover:from-purple-500/10 group-hover:to-cyan-500/5 transition-all duration-500" />
+
+                  <div
+                    className={`absolute left-0 top-0 bottom-0 w-1 ${
+                      available
+                        ? 'bg-gradient-to-b from-purple-500 to-cyan-400'
+                        : 'bg-red-500'
+                    }`}
+                  />
+
+                  <div className="relative">
+
+                    <div className="flex justify-between items-start gap-3">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.22em] text-slate-600 mb-2">
+                          {book.category}
+                        </p>
+
+                        <h2 className="text-xl font-bold text-white line-clamp-2">
+                          {book.title}
+                        </h2>
+
+                        <p className="mt-2 text-slate-400">
+                          {book.author}
+                        </p>
+                      </div>
+
+                      <span
+                        className={`flex-shrink-0 inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold ${
+                          available
+                            ? 'bg-emerald-500/10 text-emerald-300 border border-emerald-500/20'
+                            : 'bg-red-500/10 text-red-300 border border-red-500/20'
+                        }`}
+                      >
+                        <Zap className="w-3 h-3" />
+                        {book.availableCopies}/
+                        {book.totalCopies}
+                      </span>
+                    </div>
+
+                    <p className="mt-5 text-xs text-slate-600">
+                      ISBN / ID
+                    </p>
+
+                    <p className="mt-1 text-sm text-slate-400 truncate">
+                      {book.isbn}
+                    </p>
+
+                    <div className="mt-6 grid grid-cols-3 gap-2">
+
+                      <button
+                        onClick={() =>
+                          setQrBook(book)
+                        }
+                        className="py-2.5 rounded-xl bg-white/[0.05] border border-white/10 text-slate-200 hover:bg-white/[0.09] transition-all"
+                      >
+                        QR
+                      </button>
+
+                      <button
+                        onClick={() =>
+                          handleEdit(book)
+                        }
+                        className="inline-flex items-center justify-center gap-1 py-2.5 rounded-xl bg-purple-500/5 border border-purple-500/15 text-purple-300 hover:bg-purple-500/10 transition-all"
+                      >
+                        <Pencil className="w-4 h-4" />
+                        Edit
+                      </button>
+
+                      <button
+                        onClick={() =>
+                          handleDelete(book._id)
+                        }
+                        className="inline-flex items-center justify-center gap-1 py-2.5 rounded-xl bg-red-500/5 border border-red-500/15 text-red-300 hover:bg-red-500/10 transition-all"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                        Delete
+                      </button>
+
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          {!books.length && (
+            <div className="py-24 text-center">
+
+              <div className="inline-flex p-5 rounded-full bg-purple-500/10 text-purple-400">
+                <BookOpen className="w-12 h-12" />
+              </div>
+
+              <h3 className="mt-6 text-2xl font-bold">
+                No books found
+              </h3>
+
+              <p className="mt-2 text-slate-500">
+                Start building your collection.
+              </p>
+
+              <Link
+                to="/add"
+                className="inline-flex items-center gap-2 mt-7 px-6 py-3 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 font-semibold"
+              >
+                <Plus className="w-5 h-5" />
+                Add Your First Book
+              </Link>
+            </div>
+          )}
+        </>
+      )}
+
+      {/* ================= QR MODAL ================= */}
+
+      {qrBook && (
+        <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/80 backdrop-blur-lg p-6">
+
+          <div className="w-full max-w-md rounded-3xl bg-slate-950 border border-white/10 p-7 shadow-2xl">
+
+            <div className="flex justify-between items-start mb-7">
+
+              <div>
+                <p className="text-xs uppercase tracking-[0.25em] text-purple-400">
+                  Book Identity
+                </p>
+
+                <h3 className="mt-2 text-2xl font-bold">
+                  {qrBook.title}
+                </h3>
+
+                <p className="mt-1 text-sm text-slate-500">
+                  {qrBook.author}
+                </p>
+              </div>
+
+              <button
+                onClick={() =>
+                  setQrBook(null)
+                }
+                className="p-2 rounded-xl text-slate-500 hover:text-white hover:bg-white/5"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+            </div>
+
+            <div
+              ref={qrRef}
+              className="bg-white rounded-2xl p-6 flex justify-center"
+            >
+              <QRCode
+                value={qrBook.qrCodeData}
+                size={230}
+              />
+            </div>
+
+            <p className="mt-5 text-xs text-slate-600 break-all text-center">
+              {qrBook.qrCodeData}
+            </p>
+
+            <div className="grid grid-cols-3 gap-2 mt-6">
+
+              <button
+                onClick={downloadQr}
+                className="inline-flex items-center justify-center gap-1 py-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-300"
+              >
+                <Download className="w-4 h-4" />
+                Save
+              </button>
+
+              <button
+                onClick={printQr}
+                className="inline-flex items-center justify-center gap-1 py-3 rounded-xl bg-white/5 border border-white/10 text-slate-200"
+              >
+                <Printer className="w-4 h-4" />
+                Print
+              </button>
+
+              <button
+                onClick={copyQr}
+                className="inline-flex items-center justify-center gap-1 py-3 rounded-xl bg-white/5 border border-white/10 text-slate-200"
+              >
+                <Copy className="w-4 h-4" />
+                Copy
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+      )}
+
+      {/* ================= EDIT MODAL ================= */}
+
+      {editingBook && (
+        <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/80 backdrop-blur-lg p-6">
+
+          <div className="w-full max-w-xl rounded-3xl bg-slate-950 border border-white/10 p-7 shadow-2xl">
+
+            <div className="flex items-center justify-between mb-7">
+
+              <div>
+                <p className="text-xs uppercase tracking-[0.25em] text-purple-400">
+                  Library Management
+                </p>
+
+                <h3 className="mt-2 text-2xl font-bold">
+                  Edit Book
+                </h3>
+              </div>
+
+              <button
+                onClick={() =>
+                  setEditingBook(null)
+                }
+                className="p-2 rounded-xl text-slate-500 hover:text-white hover:bg-white/5"
+              >
+                <X />
+              </button>
+
+            </div>
+
+            <form
+              onSubmit={saveEdit}
+              className="space-y-5"
+            >
+
+              <EditInput
+                label="Title"
+                value={editingBook.title}
+                onChange={(value) =>
+                  setEditingBook({
+                    ...editingBook,
+                    title: value,
+                  })
+                }
+              />
+
+              <EditInput
+                label="Author"
+                value={editingBook.author}
+                onChange={(value) =>
+                  setEditingBook({
+                    ...editingBook,
+                    author: value,
+                  })
+                }
+              />
+
+              <EditInput
+                label="ISBN / Book ID"
+                value={editingBook.isbn}
+                onChange={(value) =>
+                  setEditingBook({
+                    ...editingBook,
+                    isbn: value,
+                  })
+                }
+              />
+
+              <EditInput
+                label="Category"
+                value={editingBook.category}
+                onChange={(value) =>
+                  setEditingBook({
+                    ...editingBook,
+                    category: value,
+                  })
+                }
+              />
+
+              <EditInput
+                label="Total Copies"
+                type="number"
+                min="1"
+                value={editingBook.totalCopies}
+                onChange={(value) =>
+                  setEditingBook({
+                    ...editingBook,
+                    totalCopies: value,
+                  })
+                }
+              />
+
+              <button
+                type="submit"
+                disabled={saving}
+                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-500 to-cyan-500 font-semibold disabled:opacity-50"
+              >
+                {saving
+                  ? 'Saving...'
+                  : 'Save Changes'}
+              </button>
+
+            </form>
+
+          </div>
+        </div>
+      )}
+
+    </div>
+  );
+}
+
+function EditInput({
+  label,
+  type = 'text',
+  value,
+  onChange,
+  min,
+}) {
+  return (
+    <div>
+      <label className="block text-sm text-slate-500 mb-2">
+        {label}
+      </label>
+
+      <input
+        type={type}
+        min={min}
+        value={value}
+        onChange={(event) =>
+          onChange(event.target.value)
+        }
+        className="w-full rounded-xl bg-white/[0.04] border border-white/10 px-4 py-3 text-white outline-none focus:border-purple-500/50"
+      />
+    </div>
+  );
+}
+</file>
+
+<file path="client/src/pages/Dashboard.jsx">
+import { useEffect, useMemo, useRef, useState } from 'react';
+import api from '../api';
+import gsap from 'gsap';
+
+import {
+  BookOpen,
+  ArrowUpRight,
+  CheckCircle,
+  Clock,
+  Download,
+  User,
+  Calendar,
+  BadgeCheck,
+  Library,
+  Activity,
+  Search,
+  AlertTriangle,
+} from 'lucide-react';
+
+export default function Dashboard() {
+  const [books, setBooks] = useState([]);
+  const [transactions, setTransactions] = useState([]);
+  const [statusFilter, setStatusFilter] = useState('');
+  const [search, setSearch] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  const counterRefs = useRef([]);
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      setError('');
+
+      const [booksResponse, transactionsResponse] =
+        await Promise.all([
+          api.get('/books'),
+          api.get('/transactions'),
+        ]);
+
+      setBooks(booksResponse.data || []);
+      setTransactions(
+        transactionsResponse.data || []
+      );
+    } catch (err) {
+      console.error(err);
+
+      setError(
+        err.response?.data?.message ||
+          'Unable to load dashboard.'
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const stats = useMemo(() => {
+    const totalTitles = books.length;
+
+    const totalCopies = books.reduce(
+      (sum, book) =>
+        sum + Number(book.totalCopies || 0),
+      0
+    );
+
+    const availableCopies = books.reduce(
+      (sum, book) =>
+        sum + Number(book.availableCopies || 0),
+      0
+    );
+
+    const issuedCopies =
+      totalCopies - availableCopies;
+
+    const overdue = transactions.filter(
+      (transaction) =>
+        transaction.status === 'issued' &&
+        transaction.dueDate &&
+        new Date(transaction.dueDate) < new Date()
+    ).length;
+
+    return {
+      totalTitles,
+      totalCopies,
+      availableCopies,
+      issuedCopies,
+      overdue,
+    };
+  }, [books, transactions]);
+
+  useEffect(() => {
+    if (loading) return;
+
+    const values = [
+      stats.totalTitles,
+      stats.issuedCopies,
+      stats.availableCopies,
+      stats.overdue,
+    ];
+
+    counterRefs.current.forEach(
+      (element, index) => {
+        if (!element) return;
+
+        const obj = {
+          value: 0,
+        };
+
+        gsap.to(obj, {
+          value: values[index],
+          duration: 1.3,
+          delay: index * 0.08,
+          ease: 'power3.out',
+          onUpdate: () => {
+            element.textContent =
+              Math.floor(obj.value);
+          },
+        });
+      }
+    );
+  }, [stats, loading]);
+
+  const filteredTransactions =
+    transactions.filter((transaction) => {
+      const matchesStatus =
+        !statusFilter ||
+        transaction.status === statusFilter;
+
+      const query =
+        search.trim().toLowerCase();
+
+      const matchesSearch =
+        !query ||
+        transaction.borrowerName
+          ?.toLowerCase()
+          .includes(query) ||
+        transaction.book?.title
+          ?.toLowerCase()
+          .includes(query);
+
+      return (
+        matchesStatus &&
+        matchesSearch
+      );
+    });
+
+  const lastSevenDays = useMemo(() => {
+    return Array.from(
+      { length: 7 },
+      (_, index) => {
+        const date = new Date();
+
+        date.setHours(0, 0, 0, 0);
+
+        date.setDate(
+          date.getDate() - (6 - index)
+        );
+
+        return date;
+      }
+    );
+  }, []);
+
+  const activityData = useMemo(() => {
+    return lastSevenDays.map((date) => {
+      const count = transactions.filter(
+        (transaction) => {
+          const transactionDate =
+            new Date(
+              transaction.issueTimestamp
+            );
+
+          return (
+            transactionDate.getFullYear() ===
+              date.getFullYear() &&
+            transactionDate.getMonth() ===
+              date.getMonth() &&
+            transactionDate.getDate() ===
+              date.getDate()
+          );
+        }
+      ).length;
+
+      return {
+        label: date.toLocaleDateString(
+          undefined,
+          { weekday: 'short' }
+        ),
+        count,
+      };
+    });
+  }, [lastSevenDays, transactions]);
+
+  const maxActivity = Math.max(
+    ...activityData.map(
+      (day) => day.count
+    ),
+    1
+  );
+
+  const categories = useMemo(() => {
+    const map = {};
+
+    books.forEach((book) => {
+      const category =
+        book.category || 'Other';
+
+      map[category] =
+        (map[category] || 0) + 1;
+    });
+
+    return Object.entries(map)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 6);
+  }, [books]);
+
+  const exportCsv = async () => {
+    try {
+      const response = await api.get(
+        '/transactions/export',
+        {
+          responseType: 'blob',
+        }
+      );
+
+      const url =
+        window.URL.createObjectURL(
+          new Blob(
+            [response.data],
+            {
+              type: 'text/csv',
+            }
+          )
+        );
+
+      const link =
+        document.createElement('a');
+
+      link.href = url;
+      link.download =
+        'transactions.csv';
+
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error(err);
+      alert('Export failed.');
+    }
+  };
+
+  const availabilityPercent =
+    stats.totalCopies > 0
+      ? Math.round(
+          (stats.availableCopies /
+            stats.totalCopies) *
+            100
+        )
+      : 0;
+
+  return (
+    <div className="relative max-w-7xl mx-auto px-6 py-14">
+
+      <div className="pointer-events-none absolute -top-32 -left-40 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-3xl" />
+
+      {/* Header */}
+      <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+
+        <div>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-sm mb-4">
+            <Activity className="w-4 h-4" />
+            Live Library Overview
+          </div>
+
+          <h1 className="text-5xl font-black tracking-tight">
+            Dashboard
+          </h1>
+
+          <p className="mt-3 text-lg text-slate-500">
+            Your entire library, in one view.
+          </p>
+        </div>
+
+        <button
+          onClick={exportCsv}
+          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white/[0.04] border border-white/10 text-slate-200 hover:bg-white/[0.08] transition-all"
+        >
+          <Download className="w-5 h-5" />
+          Export Transactions
+        </button>
+
+      </div>
+
+      {error && (
+        <div className="mb-8 rounded-2xl border border-red-500/20 bg-red-500/10 px-5 py-4 text-red-300">
+          {error}
+        </div>
+      )}
+
+      {loading ? (
+        <div className="py-32 flex justify-center">
+          <div className="w-12 h-12 rounded-full border-4 border-purple-500/20 border-t-purple-500 animate-spin" />
+        </div>
+      ) : (
+        <>
+          {/* Stats */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+
+            <StatCard
+              label="Total Titles"
+              value={stats.totalTitles}
+              icon={Library}
+              refCallback={(el) =>
+                (counterRefs.current[0] =
+                  el)
+              }
+              theme="purple"
+            />
+
+            <StatCard
+              label="Issued Copies"
+              value={stats.issuedCopies}
+              icon={ArrowUpRight}
+              refCallback={(el) =>
+                (counterRefs.current[1] =
+                  el)
+              }
+              theme="cyan"
+            />
+
+            <StatCard
+              label="Available Copies"
+              value={stats.availableCopies}
+              icon={CheckCircle}
+              refCallback={(el) =>
+                (counterRefs.current[2] =
+                  el)
+              }
+              theme="green"
+            />
+
+            <StatCard
+              label="Overdue"
+              value={stats.overdue}
+              icon={Clock}
+              refCallback={(el) =>
+                (counterRefs.current[3] =
+                  el)
+              }
+              theme="red"
+            />
+
+          </div>
+
+          {/* Main analytics */}
+          <div className="grid xl:grid-cols-3 gap-6 mt-6">
+
+            {/* Chart */}
+            <div className="xl:col-span-2 rounded-3xl border border-white/[0.08] bg-white/[0.035] backdrop-blur-xl p-7">
+
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h2 className="text-xl font-bold">
+                    Borrowing Activity
+                  </h2>
+                  <p className="mt-1 text-sm text-slate-600">
+                    Issues across the last seven days.
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400">
+                  <Activity />
+                </div>
+              </div>
+
+              <div className="h-64 flex items-end gap-3 md:gap-5">
+
+                {activityData.map(
+                  (day) => (
+                    <div
+                      key={day.label}
+                      className="flex-1 h-full flex flex-col items-center justify-end gap-3"
+                    >
+                      <span className="text-xs text-slate-500">
+                        {day.count}
+                      </span>
+
+                      <div className="w-full h-48 flex items-end">
+                        <div
+                          className="w-full rounded-t-xl bg-gradient-to-t from-purple-600 to-cyan-400 transition-all duration-700"
+                          style={{
+                            height: `${
+                              Math.max(
+                                day.count /
+                                  maxActivity *
+                                  100,
+                                day.count > 0
+                                  ? 8
+                                  : 3
+                              )
+                            }%`,
+                          }}
+                        />
+                      </div>
+
+                      <span className="text-xs text-slate-600">
+                        {day.label}
+                      </span>
+                    </div>
+                  )
+                )}
+
+              </div>
+            </div>
+
+            {/* Availability */}
+            <div className="rounded-3xl border border-white/[0.08] bg-white/[0.035] backdrop-blur-xl p-7">
+
+              <div className="flex justify-between">
+                <div>
+                  <h2 className="text-xl font-bold">
+                    Library Health
+                  </h2>
+
+                  <p className="mt-1 text-sm text-slate-600">
+                    Current availability.
+                  </p>
+                </div>
+
+                <BookOpen className="text-cyan-400" />
+              </div>
+
+              <div className="mt-10">
+
+                <div className="flex items-end justify-between">
+                  <span className="text-5xl font-black">
+                    {availabilityPercent}%
+                  </span>
+
+                  <span className="text-sm text-slate-600">
+                    available
+                  </span>
+                </div>
+
+                <div className="mt-4 h-3 rounded-full bg-white/[0.05] overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-purple-500 to-cyan-400 transition-all duration-1000"
+                    style={{
+                      width: `${availabilityPercent}%`,
+                    }}
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 mt-8">
+
+                  <MiniMetric
+                    label="Physical copies"
+                    value={stats.totalCopies}
+                  />
+
+                  <MiniMetric
+                    label="Currently issued"
+                    value={stats.issuedCopies}
+                  />
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Category distribution */}
+          <div className="mt-6 rounded-3xl border border-white/[0.08] bg-white/[0.035] backdrop-blur-xl p-7">
+
+            <div>
+              <h2 className="text-xl font-bold">
+                Collection Breakdown
+              </h2>
+
+              <p className="mt-1 text-sm text-slate-600">
+                Titles by category.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-5 mt-8">
+
+              {categories.length === 0 && (
+                <p className="text-slate-600">
+                  Add books to see category data.
+                </p>
+              )}
+
+              {categories.map(
+                ([category, count]) => {
+                  const percentage =
+                    books.length > 0
+                      ? (count /
+                          books.length) *
+                        100
+                      : 0;
+
+                  return (
+                    <div key={category}>
+
+                      <div className="flex justify-between mb-2">
+                        <span className="text-sm text-slate-300">
+                          {category}
+                        </span>
+
+                        <span className="text-sm text-slate-600">
+                          {count}
+                        </span>
+                      </div>
+
+                      <div className="h-2 rounded-full bg-white/[0.05] overflow-hidden">
+                        <div
+                          className="h-full rounded-full bg-gradient-to-r from-purple-500 to-cyan-400"
+                          style={{
+                            width: `${percentage}%`,
+                          }}
+                        />
+                      </div>
+
+                    </div>
+                  );
+                }
+              )}
+            </div>
+          </div>
+
+          {/* Transactions */}
+          <div className="mt-6 rounded-3xl border border-white/[0.08] bg-white/[0.035] backdrop-blur-xl overflow-hidden">
+
+            <div className="p-7 border-b border-white/[0.06]">
+
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+
+                <div>
+                  <h2 className="text-2xl font-bold">
+                    Transaction History
+                  </h2>
+
+                  <p className="mt-1 text-sm text-slate-600">
+                    Search and filter all borrowing activity.
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+
+                  <div className="relative">
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-600" />
+
+                    <input
+                      value={search}
+                      onChange={(e) =>
+                        setSearch(e.target.value)
+                      }
+                      placeholder="Search borrower or book"
+                      className="w-full sm:w-64 bg-white/[0.04] border border-white/10 rounded-xl pl-10 pr-4 py-3 text-white placeholder-slate-600 outline-none focus:border-purple-500/50"
+                    />
+                  </div>
+
+                  <select
+                    value={statusFilter}
+                    onChange={(e) =>
+                      setStatusFilter(
+                        e.target.value
+                      )
+                    }
+                    className="bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-white"
+                  >
+                    <option value="">
+                      All statuses
+                    </option>
+                    <option value="issued">
+                      Issued
+                    </option>
+                    <option value="returned">
+                      Returned
+                    </option>
+                  </select>
+
+                </div>
+              </div>
+            </div>
+
+            <div className="overflow-x-auto">
+
+              <table className="w-full text-left">
+
+                <thead className="bg-white/[0.025] text-slate-600 text-sm">
+                  <tr>
+                    <th className="px-7 py-4">
+                      Book
+                    </th>
+
+                    <th className="px-7 py-4">
+                      Borrower
+                    </th>
+
+                    <th className="px-7 py-4">
+                      Issue Date
+                    </th>
+
+                    <th className="px-7 py-4">
+                      Status
+                    </th>
+
+                    <th className="px-7 py-4">
+                      Due
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody className="divide-y divide-white/[0.05]">
+
+                  {filteredTransactions
+                    .slice(0, 20)
+                    .map((transaction) => {
+
+                      const overdue =
+                        transaction.status ===
+                          'issued' &&
+                        transaction.dueDate &&
+                        new Date(
+                          transaction.dueDate
+                        ) < new Date();
+
+                      return (
+                        <tr
+                          key={
+                            transaction._id
+                          }
+                          className="hover:bg-white/[0.025] transition-colors"
+                        >
+
+                          <td className="px-7 py-5">
+                            <p className="font-medium text-white">
+                              {transaction
+                                .book?.title ||
+                                'Unknown book'}
+                            </p>
+
+                            <p className="text-xs text-slate-600 mt-1">
+                              {transaction
+                                .book?.author ||
+                                ''}
+                            </p>
+                          </td>
+
+                          <td className="px-7 py-5 text-slate-300">
+                            <span className="inline-flex items-center gap-2">
+                              <User className="w-4 h-4 text-slate-600" />
+                              {
+                                transaction.borrowerName
+                              }
+                            </span>
+                          </td>
+
+                          <td className="px-7 py-5 text-slate-400">
+                            <span className="inline-flex items-center gap-2">
+                              <Calendar className="w-4 h-4 text-slate-600" />
+
+                              {transaction.issueTimestamp
+                                ? new Date(
+                                    transaction.issueTimestamp
+                                  ).toLocaleDateString()
+                                : '-'}
+                            </span>
+                          </td>
+
+                          <td className="px-7 py-5">
+
+                            <span
+                              className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs ${
+                                transaction.status ===
+                                'issued'
+                                  ? 'bg-yellow-500/10 text-yellow-300 border border-yellow-500/20'
+                                  : 'bg-emerald-500/10 text-emerald-300 border border-emerald-500/20'
+                              }`}
+                            >
+                              <BadgeCheck className="w-3 h-3" />
+
+                              {
+                                transaction.status
+                              }
+                            </span>
+
+                          </td>
+
+                          <td className="px-7 py-5">
+
+                            {transaction.dueDate ? (
+                              <span
+                                className={
+                                  overdue
+                                    ? 'text-red-400'
+                                    : 'text-slate-400'
+                                }
+                              >
+                                {overdue && (
+                                  <AlertTriangle className="inline w-3.5 h-3.5 mr-1" />
+                                )}
+
+                                {new Date(
+                                  transaction.dueDate
+                                ).toLocaleDateString()}
+                              </span>
+                            ) : (
+                              '-'
+                            )}
+
+                          </td>
+
+                        </tr>
+                      );
+                    })}
+
+                  {filteredTransactions.length === 0 && (
+                    <tr>
+                      <td
+                        colSpan={5}
+                        className="px-7 py-16 text-center text-slate-600"
+                      >
+                        No matching transactions.
+                      </td>
+                    </tr>
+                  )}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Quick actions */}
+          <div className="grid md:grid-cols-3 gap-4 mt-6">
+
+            <QuickAction
+              icon={BookOpen}
+              title="Manage Books"
+              description="Search, edit and manage inventory."
+              to="/books"
+            />
+
+            <QuickAction
+              icon={ArrowUpRight}
+              title="Issue / Return"
+              description="Scan a book and update its status."
+              to="/scan"
+            />
+
+            <QuickAction
+              icon={Library}
+              title="Add Collection"
+              description="Add a new title to your library."
+              to="/add"
+            />
+
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+function StatCard({
+  label,
+  value,
+  icon: Icon,
+  refCallback,
+  theme,
+}) {
+  const themes = {
+    purple:
+      'from-purple-500/15 to-purple-500/[0.02] text-purple-400',
+
+    cyan:
+      'from-cyan-500/15 to-cyan-500/[0.02] text-cyan-400',
+
+    green:
+      'from-emerald-500/15 to-emerald-500/[0.02] text-emerald-400',
+
+    red:
+      'from-red-500/15 to-red-500/[0.02] text-red-400',
+  };
+
+  return (
+    <div
+      className={`relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br ${themes[theme]} p-6 backdrop-blur-xl`}
+    >
+      <div className="relative">
+
+        <div className="inline-flex p-3 rounded-xl bg-white/[0.05]">
+          <Icon className="w-6 h-6" />
+        </div>
+
+        <p className="mt-5 text-sm text-slate-500">
+          {label}
+        </p>
+
+        <div
+          ref={refCallback}
+          className="mt-2 text-4xl font-black text-white"
+        >
+          {value}
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+function MiniMetric({ label, value }) {
+  return (
+    <div className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-4">
+      <p className="text-xs text-slate-600">
+        {label}
+      </p>
+
+      <p className="mt-2 text-2xl font-bold">
+        {value}
+      </p>
+    </div>
+  );
+}
+
+function QuickAction({
+  icon: Icon,
+  title,
+  description,
+  to,
+}) {
+  return (
+    <a
+      href={to}
+      className="group rounded-2xl border border-white/[0.08] bg-white/[0.035] p-5 hover:-translate-y-1 hover:border-purple-500/30 transition-all"
+    >
+      <div className="p-3 w-fit rounded-xl bg-purple-500/10 text-purple-400">
+        <Icon />
+      </div>
+
+      <h3 className="mt-5 font-bold">
+        {title}
+      </h3>
+
+      <p className="mt-1 text-sm text-slate-600">
+        {description}
+      </p>
+    </a>
+  );
+}
+</file>
+
+<file path="client/src/pages/IssueReturn.jsx">
+import { useState, useRef, useEffect } from 'react';
+import api from '../api';
+import { Html5Qrcode } from 'html5-qrcode';
+
+function IssueReturn() {
+  const [mode, setMode] = useState('issue');
+  const [borrowerName, setBorrowerName] = useState('');
+  const [manualQr, setManualQr] = useState('');
+  const [message, setMessage] = useState('');
+  const [scanning, setScanning] = useState(false);
+  const html5QrCodeRef = useRef(null);
+
+  const startScanner = async () => {
+    setScanning(true);
+    setMessage('');
+    try {
+      html5QrCodeRef.current = new Html5Qrcode("reader");
+      await html5QrCodeRef.current.start(
+        { facingMode: "environment" },
+        { fps: 10, qrbox: { width: 250, height: 250 } },
+        (decodedText) => {
+          setScanning(false);
+          stopScanner();
+          handleTransaction(decodedText);
+        },
+        (errorMessage) => {
+          // Ignore scan errors
+        }
+      );
+    } catch (err) {
+      alert('Unable to start camera. Please use manual entry.');
+      setScanning(false);
+    }
+  };
+
+  const stopScanner = async () => {
+    if (html5QrCodeRef.current) {
+      try {
+        await html5QrCodeRef.current.stop();
+        html5QrCodeRef.current.clear();
+      } catch (err) {
+        console.error(err);
+      }
+      html5QrCodeRef.current = null;
+    }
+    setScanning(false);
+  };
+
+  useEffect(() => {
+    return () => {
+      stopScanner();
+    };
+  }, []);
+
+  const handleTransaction = async (qrData) => {
+    try {
+      if (mode === 'issue') {
+        if (!borrowerName) {
+          alert('Please enter borrower name before scanning');
+          return;
+        }
+        const res = await api.post('/transactions/issue', { qrCodeData: qrData, borrowerName });
+        setMessage(`Book issued to ${res.data.borrowerName}`);
+      } else {
+        const res = await api.post('/transactions/return', { qrCodeData: qrData });
+        setMessage('Book returned successfully');
+      }
+    } catch (err) {
+      setMessage(err.response?.data?.message || 'Transaction failed');
+    }
+  };
+
+  const handleManualSubmit = (e) => {
+    e.preventDefault();
+    if (manualQr.trim()) {
+      handleTransaction(manualQr.trim());
+      setManualQr('');
+    }
+  };
+
+  return (
+    <div>
+      <h2 className="mb-4">Issue / Return Book</h2>
+      <div className="btn-group mb-4" role="group">
+        <button
+          className={`btn ${mode === 'issue' ? 'btn-primary' : 'btn-outline-primary'}`}
+          onClick={() => setMode('issue')}
+        >
+          Issue Book
+        </button>
+        <button
+          className={`btn ${mode === 'return' ? 'btn-success' : 'btn-outline-success'}`}
+          onClick={() => setMode('return')}
+        >
+          Return Book
+        </button>
+      </div>
+
+      {mode === 'issue' && (
+        <div className="mb-3">
+          <label className="form-label">Borrower Name</label>
+          <input
+            className="form-control"
+            style={{ maxWidth: '400px' }}
+            value={borrowerName}
+            onChange={(e) => setBorrowerName(e.target.value)}
+          />
+        </div>
+      )}
+
+      <div className="mb-3">
+        <button className="btn btn-primary me-2" onClick={startScanner} disabled={scanning}>
+          {scanning ? 'Scanning...' : 'Start Camera Scan'}
+        </button>
+        <button className="btn btn-secondary" onClick={stopScanner} disabled={!scanning}>
+          Stop Scan
+        </button>
+      </div>
+
+      <div id="reader" className="border rounded p-2 mb-3" style={{ width: '300px' }}></div>
+
+      <div className="card p-3">
+        <h5>Manual Entry</h5>
+        <form onSubmit={handleManualSubmit} className="d-flex gap-2">
+          <input
+            className="form-control"
+            placeholder="QR Code Data"
+            value={manualQr}
+            onChange={(e) => setManualQr(e.target.value)}
+          />
+          <button type="submit" className="btn btn-outline-primary">Submit</button>
+        </form>
+      </div>
+
+      {message && <div className="alert alert-info mt-3">{message}</div>}
+    </div>
+  );
+}
+
+export default IssueReturn;
+</file>
+
+<file path="client/src/pages/Landing.jsx">
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import {
+  ArrowDown,
+  ArrowRight,
+  BookOpen,
+  BarChart3,
+  QrCode,
+  ScanLine,
+  Sparkles,
+  CheckCircle,
+} from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function Landing() {
+  const storyRef = useRef(null);
+  const videoRef = useRef(null);
+  const heroCopyRef = useRef(null);
+  const leftDoorRef = useRef(null);
+  const rightDoorRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const intro = gsap.timeline({
+        defaults: {
+          ease: 'power4.out',
+        },
+      });
+
+      intro
+        .from('.hero-kicker', {
+          y: 20,
+          opacity: 0,
+          duration: 0.7,
+        })
+        .from('.hero-title-line', {
+          yPercent: 110,
+          opacity: 0,
+          clipPath: 'inset(100% 0% 0% 0%)',
+          duration: 1.1,
+          stagger: 0.12,
+        }, '-=0.3')
+        .from('.hero-description', {
+          y: 20,
+          opacity: 0,
+          duration: 0.7,
+        }, '-=0.5')
+        .from('.hero-actions', {
+          y: 20,
+          opacity: 0,
+          scale: 0.97,
+          duration: 0.7,
+        }, '-=0.4')
+        .from('.hero-scroll', {
+          opacity: 0,
+          duration: 0.5,
+        }, '-=0.2');
+
+      gsap.to(videoRef.current, {
+        scale: 1.14,
+        filter: 'brightness(0.48) saturate(1.1)',
+        scrollTrigger: {
+          trigger: storyRef.current,
+          start: 'top top',
+          end: '+=100%',
+          scrub: 1,
+        },
+      });
+
+      gsap.to(heroCopyRef.current, {
+        y: -160,
+        opacity: 0,
+        scale: 0.92,
+        scrollTrigger: {
+          trigger: storyRef.current,
+          start: 'top top',
+          end: '+=75%',
+          scrub: 1,
+        },
+      });
+
+      gsap.to(leftDoorRef.current, {
+        xPercent: -100,
+        scrollTrigger: {
+          trigger: storyRef.current,
+          start: 'top top',
+          end: '+=80%',
+          scrub: 1,
+        },
+      });
+
+      gsap.to(rightDoorRef.current, {
+        xPercent: 100,
+        scrollTrigger: {
+          trigger: storyRef.current,
+          start: 'top top',
+          end: '+=80%',
+          scrub: 1,
+        },
+      });
+
+      gsap.utils.toArray('.reveal-card').forEach((card) => {
+        gsap.from(card, {
+          y: 60,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+          },
+        });
+      });
+
+      gsap.from('.feature-orb', {
+        scale: 0.6,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: '.feature-section',
+          start: 'top 70%',
+          end: 'top 20%',
+          scrub: 1,
+        },
+      });
+    }, storyRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div className="bg-slate-950 text-white overflow-hidden">
+
+      {/* ================= HERO STORY ================= */}
+
+      <section
+        ref={storyRef}
+        className="relative h-[175vh]"
+      >
+        <div className="sticky top-0 h-screen overflow-hidden">
+
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source
+              src="/hero-bg.mp4"
+              type="video/mp4"
+            />
+          </video>
+
+          {/* Main overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/25 to-black/90" />
+
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(168,85,247,0.22),transparent_30%),radial-gradient(circle_at_80%_70%,rgba(6,182,212,0.16),transparent_25%)]" />
+
+          {/* Fake doors — this is the interaction */}
+          <div
+            ref={leftDoorRef}
+            className="absolute inset-y-0 left-0 w-1/2 bg-black/65 backdrop-blur-[2px] origin-left"
+          />
+
+          <div
+            ref={rightDoorRef}
+            className="absolute inset-y-0 right-0 w-1/2 bg-black/65 backdrop-blur-[2px] origin-right"
+          />
+
+          {/* Hero copy */}
+          <div
+            ref={heroCopyRef}
+            className="relative z-10 h-full flex items-end px-6 md:px-12 lg:px-20 pb-24 md:pb-28"
+          >
+            <div className="max-w-5xl">
+
+              <div className="hero-kicker inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-black/30 backdrop-blur-xl text-sm text-slate-200 mb-7">
+                <Sparkles className="w-4 h-4 text-purple-400" />
+                Intelligent Library Management
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[7rem] leading-[0.9] tracking-[-0.04em] font-black">
+
+                <span className="hero-title-line block overflow-hidden">
+                  The Future
+                </span>
+
+                <span className="hero-title-line block overflow-hidden bg-gradient-to-r from-purple-300 via-pink-300 to-cyan-300 bg-clip-text text-transparent glow-text">
+                  of Libraries.
+                </span>
+
+              </h1>
+
+              <p className="hero-description max-w-2xl mt-7 text-lg md:text-xl leading-relaxed text-slate-200/90">
+                A modern system for discovering books, managing inventory,
+                scanning QR identities, and tracking every issue and return.
+              </p>
+
+              <div className="hero-actions mt-9 flex flex-col sm:flex-row gap-4">
+
+                <Link
+                  to="/dashboard"
+                  className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 font-semibold hover:scale-[1.04] transition-transform shadow-2xl shadow-purple-900/30"
+                >
+                  Open Dashboard
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+
+                <Link
+                  to="/books"
+                  className="inline-flex items-center justify-center px-7 py-4 rounded-full border border-white/20 bg-white/[0.04] backdrop-blur-xl font-semibold hover:bg-white/[0.08] transition-all"
+                >
+                  Explore Library
+                </Link>
+
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-scroll absolute bottom-7 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-slate-400">
+            <span className="text-[10px] uppercase tracking-[0.4em]">
+              Scroll to explore
+            </span>
+            <ArrowDown className="w-5 h-5 animate-bounce" />
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= INTRO ================= */}
+
+      <section className="relative py-28 md:py-40 px-6">
+        <div className="max-w-6xl mx-auto">
+
+          <div className="max-w-3xl">
+            <p className="text-sm uppercase tracking-[0.3em] text-purple-400 mb-5">
+              One connected system
+            </p>
+
+            <h2 className="text-4xl md:text-6xl font-black leading-tight">
+              Your library should feel like a
+              <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                {' '}product.
+              </span>
+            </h2>
+
+            <p className="mt-6 text-lg md:text-xl leading-relaxed text-slate-400">
+              NexLib connects inventory, QR scanning, book discovery and
+              activity tracking into one smooth interface.
+            </p>
+          </div>
+
+          {/* Feature cards */}
+          <div className="grid md:grid-cols-3 gap-5 mt-16">
+
+            <FeatureCard
+              className="reveal-card"
+              icon={<BookOpen />}
+              number="01"
+              title="Discover"
+              description="Search the entire collection instantly with live availability."
+            />
+
+            <FeatureCard
+              className="reveal-card"
+              icon={<QrCode />}
+              number="02"
+              title="Scan"
+              description="Give every book a unique digital identity using QR codes."
+            />
+
+            <FeatureCard
+              className="reveal-card"
+              icon={<BarChart3 />}
+              number="03"
+              title="Understand"
+              description="Turn borrowing activity into useful library insights."
+            />
+
+          </div>
+        </div>
+      </section>
+
+      {/* ================= VISUAL FEATURE ================= */}
+
+      <section className="feature-section relative py-28 md:py-40 overflow-hidden">
+        <div className="feature-orb absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-purple-600/10 blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-6">
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-cyan-400 mb-5">
+                Built around the book
+              </p>
+
+              <h2 className="text-4xl md:text-6xl font-black leading-tight">
+                One scan.
+                <br />
+                Complete control.
+              </h2>
+
+              <p className="mt-6 text-lg leading-relaxed text-slate-400 max-w-xl">
+                Scan the book's QR identity to issue it, return it, update
+                availability, and automatically record the transaction.
+              </p>
+
+              <div className="mt-8 space-y-4">
+                <CheckRow text="Automatic availability updates" />
+                <CheckRow text="14-day issue tracking" />
+                <CheckRow text="Overdue detection" />
+                <CheckRow text="Exportable transaction history" />
+              </div>
+            </div>
+
+            {/* Visual book */}
+            <div className="relative h-[430px] flex items-center justify-center">
+
+              <div className="absolute w-72 h-72 rounded-full bg-cyan-500/10 blur-3xl" />
+
+              <div className="relative w-64 h-80 rotate-[-7deg] rounded-r-2xl rounded-l-md bg-gradient-to-br from-purple-600 via-indigo-700 to-slate-950 border border-white/20 shadow-2xl shadow-purple-950/50">
+                <div className="absolute left-0 top-0 bottom-0 w-4 bg-black/25" />
+
+                <div className="absolute inset-6 border border-white/15 rounded-lg p-5 flex flex-col justify-between">
+                  <BookOpen className="w-9 h-9 text-white/80" />
+
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.3em] text-purple-200">
+                      NEXLIB
+                    </p>
+
+                    <p className="mt-2 text-3xl font-black">
+                      Smart
+                      <br />
+                      Library
+                    </p>
+                  </div>
+
+                  <div className="h-24 w-24 rounded-xl bg-white p-3">
+                    <div className="w-full h-full bg-[repeating-linear-gradient(45deg,#111_0,#111_2px,#fff_2px,#fff_5px)]" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute w-64 h-80 rotate-[8deg] translate-x-16 rounded-r-2xl bg-gradient-to-br from-cyan-500/30 to-slate-900 border border-white/10 opacity-60" />
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ================= LIVE PULSE ================= */}
+
+      <section className="py-28 md:py-36 px-6 border-y border-white/[0.06] bg-white/[0.02]">
+        <div className="max-w-6xl mx-auto">
+
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-purple-400 mb-4">
+                Live library pulse
+              </p>
+
+              <h2 className="text-4xl md:text-5xl font-black">
+                Everything at a glance.
+              </h2>
+            </div>
+
+            <Link
+              to="/dashboard"
+              className="inline-flex items-center gap-2 text-slate-300 hover:text-white transition-colors"
+            >
+              View dashboard
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+
+            <PulseCard number="01" title="Inventory" icon={<BookOpen />} />
+            <PulseCard number="02" title="Borrowing" icon={<ScanLine />} />
+            <PulseCard number="03" title="Tracking" icon={<BarChart3 />} />
+            <PulseCard number="04" title="QR Identity" icon={<QrCode />} />
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= FINAL CTA ================= */}
+
+      <section className="relative py-32 md:py-48 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.14),transparent_42%)]" />
+
+        <div className="relative max-w-4xl mx-auto text-center">
+
+          <Sparkles className="w-8 h-8 text-purple-400 mx-auto mb-6" />
+
+          <h2 className="text-5xl md:text-7xl font-black leading-tight">
+            Welcome to the
+            <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+              next library.
+            </span>
+          </h2>
+
+          <p className="mt-6 max-w-2xl mx-auto text-lg text-slate-400">
+            Discover. Scan. Manage. Understand.
+          </p>
+
+          <Link
+            to="/books"
+            className="inline-flex items-center gap-2 mt-9 px-8 py-4 rounded-full bg-white text-slate-950 font-bold hover:scale-105 transition-transform"
+          >
+            Enter NexLib
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function FeatureCard({
+  icon,
+  number,
+  title,
+  description,
+  className = '',
+}) {
+  return (
+    <div
+      className={`group rounded-3xl border border-white/[0.08] bg-white/[0.035] p-7 backdrop-blur-xl hover:-translate-y-2 hover:border-purple-500/30 transition-all duration-500 ${className}`}
+    >
+      <div className="flex items-center justify-between">
+        <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400">
+          {icon}
+        </div>
+
+        <span className="text-sm text-slate-600">
+          {number}
+        </span>
+      </div>
+
+      <h3 className="mt-8 text-2xl font-bold">
+        {title}
+      </h3>
+
+      <p className="mt-3 text-slate-500 leading-relaxed">
+        {description}
+      </p>
+    </div>
+  );
+}
+
+function CheckRow({ text }) {
+  return (
+    <div className="flex items-center gap-3 text-slate-300">
+      <CheckCircle className="w-5 h-5 text-emerald-400" />
+      {text}
+    </div>
+  );
+}
+
+function PulseCard({ icon, number, title }) {
+  return (
+    <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.035] p-6 hover:bg-white/[0.06] transition-all duration-300">
+      <div className="absolute -right-8 -top-8 w-24 h-24 rounded-full bg-purple-500/10 blur-2xl group-hover:bg-cyan-500/10 transition-colors" />
+
+      <div className="relative">
+        <div className="flex justify-between items-center">
+          <div className="p-2.5 rounded-xl bg-white/[0.05] text-purple-400">
+            {icon}
+          </div>
+
+          <span className="text-xs text-slate-600">
+            {number}
+          </span>
+        </div>
+
+        <h3 className="mt-7 font-semibold">
+          {title}
+        </h3>
+
+        <div className="mt-4 h-1 rounded-full bg-white/5 overflow-hidden">
+          <div className="h-full w-2/3 rounded-full bg-gradient-to-r from-purple-500 to-cyan-400" />
+        </div>
+      </div>
+    </div>
+  );
+}
+</file>
+
+<file path="client/src/pages/QRScanner.jsx">
+import { useEffect, useMemo, useRef, useState } from 'react';
+import api from '../api';
+import gsap from 'gsap';
+
+import {
+  BookOpen,
+  ArrowUpRight,
+  CheckCircle,
+  Clock,
+  Download,
+  User,
+  Calendar,
+  BadgeCheck,
+  Library,
+  Activity,
+  Search,
+  AlertTriangle,
+} from 'lucide-react';
+
+export default function Dashboard() {
+  const [books, setBooks] = useState([]);
+  const [transactions, setTransactions] = useState([]);
+  const [statusFilter, setStatusFilter] = useState('');
+  const [search, setSearch] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  const counterRefs = useRef([]);
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      setError('');
+
+      const [booksResponse, transactionsResponse] =
+        await Promise.all([
+          api.get('/books'),
+          api.get('/transactions'),
+        ]);
+
+      setBooks(booksResponse.data || []);
+      setTransactions(
+        transactionsResponse.data || []
+      );
+    } catch (err) {
+      console.error(err);
+
+      setError(
+        err.response?.data?.message ||
+          'Unable to load dashboard.'
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const stats = useMemo(() => {
+    const totalTitles = books.length;
+
+    const totalCopies = books.reduce(
+      (sum, book) =>
+        sum + Number(book.totalCopies || 0),
+      0
+    );
+
+    const availableCopies = books.reduce(
+      (sum, book) =>
+        sum + Number(book.availableCopies || 0),
+      0
+    );
+
+    const issuedCopies =
+      totalCopies - availableCopies;
+
+    const overdue = transactions.filter(
+      (transaction) =>
+        transaction.status === 'issued' &&
+        transaction.dueDate &&
+        new Date(transaction.dueDate) < new Date()
+    ).length;
+
+    return {
+      totalTitles,
+      totalCopies,
+      availableCopies,
+      issuedCopies,
+      overdue,
+    };
+  }, [books, transactions]);
+
+  useEffect(() => {
+    if (loading) return;
+
+    const values = [
+      stats.totalTitles,
+      stats.issuedCopies,
+      stats.availableCopies,
+      stats.overdue,
+    ];
+
+    counterRefs.current.forEach(
+      (element, index) => {
+        if (!element) return;
+
+        const obj = {
+          value: 0,
+        };
+
+        gsap.to(obj, {
+          value: values[index],
+          duration: 1.3,
+          delay: index * 0.08,
+          ease: 'power3.out',
+          onUpdate: () => {
+            element.textContent =
+              Math.floor(obj.value);
+          },
+        });
+      }
+    );
+  }, [stats, loading]);
+
+  const filteredTransactions =
+    transactions.filter((transaction) => {
+      const matchesStatus =
+        !statusFilter ||
+        transaction.status === statusFilter;
+
+      const query =
+        search.trim().toLowerCase();
+
+      const matchesSearch =
+        !query ||
+        transaction.borrowerName
+          ?.toLowerCase()
+          .includes(query) ||
+        transaction.book?.title
+          ?.toLowerCase()
+          .includes(query);
+
+      return (
+        matchesStatus &&
+        matchesSearch
+      );
+    });
+
+  const lastSevenDays = useMemo(() => {
+    return Array.from(
+      { length: 7 },
+      (_, index) => {
+        const date = new Date();
+
+        date.setHours(0, 0, 0, 0);
+
+        date.setDate(
+          date.getDate() - (6 - index)
+        );
+
+        return date;
+      }
+    );
+  }, []);
+
+  const activityData = useMemo(() => {
+    return lastSevenDays.map((date) => {
+      const count = transactions.filter(
+        (transaction) => {
+          const transactionDate =
+            new Date(
+              transaction.issueTimestamp
+            );
+
+          return (
+            transactionDate.getFullYear() ===
+              date.getFullYear() &&
+            transactionDate.getMonth() ===
+              date.getMonth() &&
+            transactionDate.getDate() ===
+              date.getDate()
+          );
+        }
+      ).length;
+
+      return {
+        label: date.toLocaleDateString(
+          undefined,
+          { weekday: 'short' }
+        ),
+        count,
+      };
+    });
+  }, [lastSevenDays, transactions]);
+
+  const maxActivity = Math.max(
+    ...activityData.map(
+      (day) => day.count
+    ),
+    1
+  );
+
+  const categories = useMemo(() => {
+    const map = {};
+
+    books.forEach((book) => {
+      const category =
+        book.category || 'Other';
+
+      map[category] =
+        (map[category] || 0) + 1;
+    });
+
+    return Object.entries(map)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 6);
+  }, [books]);
+
+  const exportCsv = async () => {
+    try {
+      const response = await api.get(
+        '/transactions/export',
+        {
+          responseType: 'blob',
+        }
+      );
+
+      const url =
+        window.URL.createObjectURL(
+          new Blob(
+            [response.data],
+            {
+              type: 'text/csv',
+            }
+          )
+        );
+
+      const link =
+        document.createElement('a');
+
+      link.href = url;
+      link.download =
+        'transactions.csv';
+
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error(err);
+      alert('Export failed.');
+    }
+  };
+
+  const availabilityPercent =
+    stats.totalCopies > 0
+      ? Math.round(
+          (stats.availableCopies /
+            stats.totalCopies) *
+            100
+        )
+      : 0;
+
+  return (
+    <div className="relative max-w-7xl mx-auto px-6 py-14">
+
+      <div className="pointer-events-none absolute -top-32 -left-40 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-3xl" />
+
+      {/* Header */}
+      <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-10">
+
+        <div>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-sm mb-4">
+            <Activity className="w-4 h-4" />
+            Live Library Overview
+          </div>
+
+          <h1 className="text-5xl font-black tracking-tight">
+            Dashboard
+          </h1>
+
+          <p className="mt-3 text-lg text-slate-500">
+            Your entire library, in one view.
+          </p>
+        </div>
+
+        <button
+          onClick={exportCsv}
+          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white/[0.04] border border-white/10 text-slate-200 hover:bg-white/[0.08] transition-all"
+        >
+          <Download className="w-5 h-5" />
+          Export Transactions
+        </button>
+
+      </div>
+
+      {error && (
+        <div className="mb-8 rounded-2xl border border-red-500/20 bg-red-500/10 px-5 py-4 text-red-300">
+          {error}
+        </div>
+      )}
+
+      {loading ? (
+        <div className="py-32 flex justify-center">
+          <div className="w-12 h-12 rounded-full border-4 border-purple-500/20 border-t-purple-500 animate-spin" />
+        </div>
+      ) : (
+        <>
+          {/* Stats */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+
+            <StatCard
+              label="Total Titles"
+              value={stats.totalTitles}
+              icon={Library}
+              refCallback={(el) =>
+                (counterRefs.current[0] =
+                  el)
+              }
+              theme="purple"
+            />
+
+            <StatCard
+              label="Issued Copies"
+              value={stats.issuedCopies}
+              icon={ArrowUpRight}
+              refCallback={(el) =>
+                (counterRefs.current[1] =
+                  el)
+              }
+              theme="cyan"
+            />
+
+            <StatCard
+              label="Available Copies"
+              value={stats.availableCopies}
+              icon={CheckCircle}
+              refCallback={(el) =>
+                (counterRefs.current[2] =
+                  el)
+              }
+              theme="green"
+            />
+
+            <StatCard
+              label="Overdue"
+              value={stats.overdue}
+              icon={Clock}
+              refCallback={(el) =>
+                (counterRefs.current[3] =
+                  el)
+              }
+              theme="red"
+            />
+
+          </div>
+
+          {/* Main analytics */}
+          <div className="grid xl:grid-cols-3 gap-6 mt-6">
+
+            {/* Chart */}
+            <div className="xl:col-span-2 rounded-3xl border border-white/[0.08] bg-white/[0.035] backdrop-blur-xl p-7">
+
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h2 className="text-xl font-bold">
+                    Borrowing Activity
+                  </h2>
+                  <p className="mt-1 text-sm text-slate-600">
+                    Issues across the last seven days.
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400">
+                  <Activity />
+                </div>
+              </div>
+
+              <div className="h-64 flex items-end gap-3 md:gap-5">
+
+                {activityData.map(
+                  (day) => (
+                    <div
+                      key={day.label}
+                      className="flex-1 h-full flex flex-col items-center justify-end gap-3"
+                    >
+                      <span className="text-xs text-slate-500">
+                        {day.count}
+                      </span>
+
+                      <div className="w-full h-48 flex items-end">
+                        <div
+                          className="w-full rounded-t-xl bg-gradient-to-t from-purple-600 to-cyan-400 transition-all duration-700"
+                          style={{
+                            height: `${
+                              Math.max(
+                                day.count /
+                                  maxActivity *
+                                  100,
+                                day.count > 0
+                                  ? 8
+                                  : 3
+                              )
+                            }%`,
+                          }}
+                        />
+                      </div>
+
+                      <span className="text-xs text-slate-600">
+                        {day.label}
+                      </span>
+                    </div>
+                  )
+                )}
+
+              </div>
+            </div>
+
+            {/* Availability */}
+            <div className="rounded-3xl border border-white/[0.08] bg-white/[0.035] backdrop-blur-xl p-7">
+
+              <div className="flex justify-between">
+                <div>
+                  <h2 className="text-xl font-bold">
+                    Library Health
+                  </h2>
+
+                  <p className="mt-1 text-sm text-slate-600">
+                    Current availability.
+                  </p>
+                </div>
+
+                <BookOpen className="text-cyan-400" />
+              </div>
+
+              <div className="mt-10">
+
+                <div className="flex items-end justify-between">
+                  <span className="text-5xl font-black">
+                    {availabilityPercent}%
+                  </span>
+
+                  <span className="text-sm text-slate-600">
+                    available
+                  </span>
+                </div>
+
+                <div className="mt-4 h-3 rounded-full bg-white/[0.05] overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-purple-500 to-cyan-400 transition-all duration-1000"
+                    style={{
+                      width: `${availabilityPercent}%`,
+                    }}
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-3 mt-8">
+
+                  <MiniMetric
+                    label="Physical copies"
+                    value={stats.totalCopies}
+                  />
+
+                  <MiniMetric
+                    label="Currently issued"
+                    value={stats.issuedCopies}
+                  />
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Category distribution */}
+          <div className="mt-6 rounded-3xl border border-white/[0.08] bg-white/[0.035] backdrop-blur-xl p-7">
+
+            <div>
+              <h2 className="text-xl font-bold">
+                Collection Breakdown
+              </h2>
+
+              <p className="mt-1 text-sm text-slate-600">
+                Titles by category.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-5 mt-8">
+
+              {categories.length === 0 && (
+                <p className="text-slate-600">
+                  Add books to see category data.
+                </p>
+              )}
+
+              {categories.map(
+                ([category, count]) => {
+                  const percentage =
+                    books.length > 0
+                      ? (count /
+                          books.length) *
+                        100
+                      : 0;
+
+                  return (
+                    <div key={category}>
+
+                      <div className="flex justify-between mb-2">
+                        <span className="text-sm text-slate-300">
+                          {category}
+                        </span>
+
+                        <span className="text-sm text-slate-600">
+                          {count}
+                        </span>
+                      </div>
+
+                      <div className="h-2 rounded-full bg-white/[0.05] overflow-hidden">
+                        <div
+                          className="h-full rounded-full bg-gradient-to-r from-purple-500 to-cyan-400"
+                          style={{
+                            width: `${percentage}%`,
+                          }}
+                        />
+                      </div>
+
+                    </div>
+                  );
+                }
+              )}
+            </div>
+          </div>
+
+          {/* Transactions */}
+          <div className="mt-6 rounded-3xl border border-white/[0.08] bg-white/[0.035] backdrop-blur-xl overflow-hidden">
+
+            <div className="p-7 border-b border-white/[0.06]">
+
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+
+                <div>
+                  <h2 className="text-2xl font-bold">
+                    Transaction History
+                  </h2>
+
+                  <p className="mt-1 text-sm text-slate-600">
+                    Search and filter all borrowing activity.
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+
+                  <div className="relative">
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-600" />
+
+                    <input
+                      value={search}
+                      onChange={(e) =>
+                        setSearch(e.target.value)
+                      }
+                      placeholder="Search borrower or book"
+                      className="w-full sm:w-64 bg-white/[0.04] border border-white/10 rounded-xl pl-10 pr-4 py-3 text-white placeholder-slate-600 outline-none focus:border-purple-500/50"
+                    />
+                  </div>
+
+                  <select
+                    value={statusFilter}
+                    onChange={(e) =>
+                      setStatusFilter(
+                        e.target.value
+                      )
+                    }
+                    className="bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-white"
+                  >
+                    <option value="">
+                      All statuses
+                    </option>
+                    <option value="issued">
+                      Issued
+                    </option>
+                    <option value="returned">
+                      Returned
+                    </option>
+                  </select>
+
+                </div>
+              </div>
+            </div>
+
+            <div className="overflow-x-auto">
+
+              <table className="w-full text-left">
+
+                <thead className="bg-white/[0.025] text-slate-600 text-sm">
+                  <tr>
+                    <th className="px-7 py-4">
+                      Book
+                    </th>
+
+                    <th className="px-7 py-4">
+                      Borrower
+                    </th>
+
+                    <th className="px-7 py-4">
+                      Issue Date
+                    </th>
+
+                    <th className="px-7 py-4">
+                      Status
+                    </th>
+
+                    <th className="px-7 py-4">
+                      Due
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody className="divide-y divide-white/[0.05]">
+
+                  {filteredTransactions
+                    .slice(0, 20)
+                    .map((transaction) => {
+
+                      const overdue =
+                        transaction.status ===
+                          'issued' &&
+                        transaction.dueDate &&
+                        new Date(
+                          transaction.dueDate
+                        ) < new Date();
+
+                      return (
+                        <tr
+                          key={
+                            transaction._id
+                          }
+                          className="hover:bg-white/[0.025] transition-colors"
+                        >
+
+                          <td className="px-7 py-5">
+                            <p className="font-medium text-white">
+                              {transaction
+                                .book?.title ||
+                                'Unknown book'}
+                            </p>
+
+                            <p className="text-xs text-slate-600 mt-1">
+                              {transaction
+                                .book?.author ||
+                                ''}
+                            </p>
+                          </td>
+
+                          <td className="px-7 py-5 text-slate-300">
+                            <span className="inline-flex items-center gap-2">
+                              <User className="w-4 h-4 text-slate-600" />
+                              {
+                                transaction.borrowerName
+                              }
+                            </span>
+                          </td>
+
+                          <td className="px-7 py-5 text-slate-400">
+                            <span className="inline-flex items-center gap-2">
+                              <Calendar className="w-4 h-4 text-slate-600" />
+
+                              {transaction.issueTimestamp
+                                ? new Date(
+                                    transaction.issueTimestamp
+                                  ).toLocaleDateString()
+                                : '-'}
+                            </span>
+                          </td>
+
+                          <td className="px-7 py-5">
+
+                            <span
+                              className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs ${
+                                transaction.status ===
+                                'issued'
+                                  ? 'bg-yellow-500/10 text-yellow-300 border border-yellow-500/20'
+                                  : 'bg-emerald-500/10 text-emerald-300 border border-emerald-500/20'
+                              }`}
+                            >
+                              <BadgeCheck className="w-3 h-3" />
+
+                              {
+                                transaction.status
+                              }
+                            </span>
+
+                          </td>
+
+                          <td className="px-7 py-5">
+
+                            {transaction.dueDate ? (
+                              <span
+                                className={
+                                  overdue
+                                    ? 'text-red-400'
+                                    : 'text-slate-400'
+                                }
+                              >
+                                {overdue && (
+                                  <AlertTriangle className="inline w-3.5 h-3.5 mr-1" />
+                                )}
+
+                                {new Date(
+                                  transaction.dueDate
+                                ).toLocaleDateString()}
+                              </span>
+                            ) : (
+                              '-'
+                            )}
+
+                          </td>
+
+                        </tr>
+                      );
+                    })}
+
+                  {filteredTransactions.length === 0 && (
+                    <tr>
+                      <td
+                        colSpan={5}
+                        className="px-7 py-16 text-center text-slate-600"
+                      >
+                        No matching transactions.
+                      </td>
+                    </tr>
+                  )}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Quick actions */}
+          <div className="grid md:grid-cols-3 gap-4 mt-6">
+
+            <QuickAction
+              icon={BookOpen}
+              title="Manage Books"
+              description="Search, edit and manage inventory."
+              to="/books"
+            />
+
+            <QuickAction
+              icon={ArrowUpRight}
+              title="Issue / Return"
+              description="Scan a book and update its status."
+              to="/scan"
+            />
+
+            <QuickAction
+              icon={Library}
+              title="Add Collection"
+              description="Add a new title to your library."
+              to="/add"
+            />
+
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+function StatCard({
+  label,
+  value,
+  icon: Icon,
+  refCallback,
+  theme,
+}) {
+  const themes = {
+    purple:
+      'from-purple-500/15 to-purple-500/[0.02] text-purple-400',
+
+    cyan:
+      'from-cyan-500/15 to-cyan-500/[0.02] text-cyan-400',
+
+    green:
+      'from-emerald-500/15 to-emerald-500/[0.02] text-emerald-400',
+
+    red:
+      'from-red-500/15 to-red-500/[0.02] text-red-400',
+  };
+
+  return (
+    <div
+      className={`relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br ${themes[theme]} p-6 backdrop-blur-xl`}
+    >
+      <div className="relative">
+
+        <div className="inline-flex p-3 rounded-xl bg-white/[0.05]">
+          <Icon className="w-6 h-6" />
+        </div>
+
+        <p className="mt-5 text-sm text-slate-500">
+          {label}
+        </p>
+
+        <div
+          ref={refCallback}
+          className="mt-2 text-4xl font-black text-white"
+        >
+          {value}
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+function MiniMetric({ label, value }) {
+  return (
+    <div className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-4">
+      <p className="text-xs text-slate-600">
+        {label}
+      </p>
+
+      <p className="mt-2 text-2xl font-bold">
+        {value}
+      </p>
+    </div>
+  );
+}
+
+function QuickAction({
+  icon: Icon,
+  title,
+  description,
+  to,
+}) {
+  return (
+    <a
+      href={to}
+      className="group rounded-2xl border border-white/[0.08] bg-white/[0.035] p-5 hover:-translate-y-1 hover:border-purple-500/30 transition-all"
+    >
+      <div className="p-3 w-fit rounded-xl bg-purple-500/10 text-purple-400">
+        <Icon />
+      </div>
+
+      <h3 className="mt-5 font-bold">
+        {title}
+      </h3>
+
+      <p className="mt-1 text-sm text-slate-600">
+        {description}
+      </p>
+    </a>
+  );
+}
+</file>
+
+<file path="client/src/shaders/glowShader.glsl">
+// Vertex shader
+uniform float uTime;
+varying vec2 vUv;
+
+void main() {
+  vUv = uv;
+  vec3 pos = position;
+  pos.z += sin(pos.x * 3.0 + uTime) * 0.05;
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+}
+</file>
+
+<file path="client/src/shaders/particleShader.glsl">
+// Vertex shader
+attribute float aSize;
+uniform float uTime;
+varying float vAlpha;
+
+void main() {
+  vec3 pos = position;
+  pos.y += sin(uTime * 0.5 + position.x * 0.5) * 0.1;
+  vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
+  gl_PointSize = aSize * (10.0 / -mvPosition.z);
+  gl_Position = projectionMatrix * mvPosition;
+  vAlpha = 0.6 + 0.4 * sin(uTime + position.x);
+}
+</file>
+
+<file path="client/src/styles/globals.css">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+:root {
+  --bg: #0f172a;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.08);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent-purple: #8b5cf6;
+  --accent-cyan: #06b6d4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Clip-path reveal animation for hero headline */
+.line {
+  display: inline-block;
+  overflow: hidden;
+}
+.line > span {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: clipReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes clipReveal {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Scan line animation for QR scanner */
+@keyframes scan-line {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 100%;
+  }
+  100% {
+    top: 0;
+  }
+}
+.animate-scan-line {
+  animation: scan-line 2s linear infinite;
+}
+
+/* Focus visible outline for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-purple);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</file>
+
+<file path="client/src/api.js">
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'http://localhost:5000/api',
+});
+
+export default api;
+</file>
+
+<file path="client/src/App.css">
+.counter {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 24px;
+
+  &:hover {
+    border-color: var(--accent-border);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.hero {
+  position: relative;
+
+  .base,
+  .framework,
+  .vite {
+    inset-inline: 0;
+    margin: 0 auto;
+  }
+
+  .base {
+    width: 170px;
+    position: relative;
+    z-index: 0;
+  }
+
+  .framework,
+  .vite {
+    position: absolute;
+  }
+
+  .framework {
+    z-index: 1;
+    top: 34px;
+    height: 28px;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
+      scale(1.4);
+  }
+
+  .vite {
+    z-index: 0;
+    top: 107px;
+    height: 26px;
+    width: auto;
+    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
+      scale(0.8);
+  }
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  place-content: center;
+  place-items: center;
+  flex-grow: 1;
+
+  @media (max-width: 1024px) {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+}
+
+#next-steps {
+  display: flex;
+  border-top: 1px solid var(--border);
+  text-align: left;
+
+  & > div {
+    flex: 1 1 0;
+    padding: 32px;
+    @media (max-width: 1024px) {
+      padding: 24px 20px;
+    }
+  }
+
+  .icon {
+    margin-bottom: 16px;
+    width: 22px;
+    height: 22px;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+#docs {
+  border-right: 1px solid var(--border);
+
+  @media (max-width: 1024px) {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+#next-steps ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  margin: 32px 0 0;
+
+  .logo {
+    height: 18px;
+  }
+
+  a {
+    color: var(--text-h);
+    font-size: 16px;
+    border-radius: 6px;
+    background: var(--social-bg);
+    display: flex;
+    padding: 6px 12px;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: var(--shadow);
+    }
+    .button-icon {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    li {
+      flex: 1 1 calc(50% - 8px);
+    }
+
+    a {
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+  }
+}
+
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border);
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4.5px;
+    border: 5px solid transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--border);
+  }
+  &::after {
+    right: 0;
+    border-right-color: var(--border);
+  }
+}
+</file>
+
+<file path="client/src/App.jsx">
+import { Routes, Route, useLocation } from 'react-router-dom';
+
+import Navbar from './components/Navbar';
+import Landing from './pages/Landing';
+import Books from './pages/Books';
+import AddBook from './pages/AddBook';
+import QRScanner from './pages/QRScanner';
+import Dashboard from './pages/Dashboard';
+
+export default function App() {
+  const location = useLocation();
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100">
+      <Navbar />
+
+      <main key={location.pathname} className="page-transition">
+        <Routes location={location}>
+          <Route path="/" element={<Landing />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/add" element={<AddBook />} />
+          <Route path="/scan" element={<QRScanner />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </main>
+    </div>
+  );
+}
+</file>
+
+<file path="client/src/index.css">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: #030712;
+  --surface: #0b1120;
+  --surface-light: rgba(255, 255, 255, 0.045);
+  --border: rgba(255, 255, 255, 0.09);
+  --purple: #a855f7;
+  --cyan: #06b6d4;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(124, 58, 237, 0.10),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 30%,
+      rgba(6, 182, 212, 0.07),
+      transparent 25%
+    ),
+    var(--background);
+  color: #f8fafc;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(168, 85, 247, 0.35);
+  color: white;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Page transition */
+
+.page-transition {
+  animation: page-transition 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes page-transition {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scanner */
+
+@keyframes scan-line {
+  0% {
+    top: 5%;
+  }
+
+  50% {
+    top: 95%;
+  }
+
+  100% {
+    top: 5%;
+  }
+}
+
+.animate-scan-line {
+  animation: scan-line 2s linear infinite;
+}
+
+/* Success */
+
+@keyframes success-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+
+  70% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.success-pop {
+  animation: success-pop 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Floating */
+
+@keyframes soft-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.soft-float {
+  animation: soft-float 5s ease-in-out infinite;
+}
+
+/* Glow */
+
+.glow-text {
+  text-shadow:
+    0 0 30px rgba(168, 85, 247, 0.18),
+    0 0 60px rgba(6, 182, 212, 0.08);
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</file>
+
+<file path="client/src/main.jsx">
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import './index.css';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+);
+</file>
+
+<file path="client/.gitignore">
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+</file>
+
+<file path="client/eslint.config.js">
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import { defineConfig, globalIgnores } from 'eslint/config'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{js,jsx}'],
+    extends: [
+      js.configs.recommended,
+      reactHooks.configs.flat.recommended,
+      reactRefresh.configs.vite,
+    ],
+    languageOptions: {
+      globals: globals.browser,
+      parserOptions: { ecmaFeatures: { jsx: true } },
+    },
+  },
+])
+</file>
+
+<file path="client/index.html">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+    />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="theme-color"
+      content="#030712"
+    />
+
+    <meta
+      name="description"
+      content="NexLib — intelligent library management with QR scanning, real-time inventory and analytics."
+    />
+
+    <title>NexLib — Intelligent Library Management</title>
+
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script
+      type="module"
+      src="/src/main.jsx"
+    ></script>
+  </body>
+</html>
+</file>
+
+<file path="client/package.json">
+{
+  "name": "nexlib",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.1.3",
+    "axios": "^1.7.2",
+    "gsap": "^3.12.5",
+    "html5-qrcode": "^2.3.8",
+    "lucide-react": "^0.400.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-qr-code": "^2.2.0",
+    "react-router-dom": "^6.25.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.7",
+    "vite": "^5.3.4"
+  }
+}
+</file>
+
+<file path="client/postcss.config.js">
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+</file>
+
+<file path="client/README.md">
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+</file>
+
+<file path="client/tailwind.config.js">
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {
+      colors: {
+        primary: '#8b5cf6',
+        secondary: '#06b6d4',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      animation: {
+        'gradient-x': 'gradient-x 8s ease infinite',
+        'scan-line': 'scan-line 2s linear infinite',
+        'fade-up': 'fade-up 0.5s ease-out forwards',
+        'slide-up': 'slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'scale-in': 'scale-in 0.3s ease-out forwards',
+        'float': 'float 6s ease-in-out infinite',
+        'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+      },
+      keyframes: {
+        'gradient-x': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        'scan-line': {
+          '0%': { top: '0%' },
+          '50%': { top: '100%' },
+          '100%': { top: '0%' },
+        },
+        'fade-up': {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'slide-up': {
+          '0%': { opacity: '0', transform: 'translateY(40px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'scale-in': {
+          '0%': { opacity: '0', transform: 'scale(0.9)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'glow-pulse': {
+          '0%, 100%': { opacity: '0.5' },
+          '50%': { opacity: '1' },
+        },
+      },
+    },
+  },
+  plugins: [],
+};
+</file>
+
+<file path="client/vite.config.js">
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+})
+</file>
+
+<file path="server/controllers/bookController.js">
+const Book = require('../models/Book');
+const Transaction = require('../models/Transaction');
+const { validationResult } = require('express-validator');
+
+function escapeRegex(value = '') {
+  return value.replace(
+    /[.*+?^${}()|[\]\\]/g,
+    '\\$&'
+  );
+}
+
+const createBook = async (req, res) => {
+  const errors =
+    validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      errors: errors.array(),
+    });
+  }
+
+  const {
+    title,
+    author,
+    isbn,
+    category,
+    totalCopies,
+  } = req.body;
+
+  try {
+    const bookExists =
+      await Book.findOne({ isbn });
+
+    if (bookExists) {
+      return res.status(409).json({
+        message:
+          'Book with this ISBN already exists.',
+      });
+    }
+
+    const book =
+      await Book.create({
+        title,
+        author,
+        isbn,
+        category,
+        totalCopies,
+      });
+
+    res.status(201).json(book);
+  } catch (err) {
+    console.error(err);
+
+    res.status(500).json({
+      message: 'Server error.',
+      error: err.message,
+    });
+  }
+};
+
+const getBooks = async (
+  req,
+  res
+) => {
+  const {
+    title,
+    author,
+    category,
+    availability,
+  } = req.query;
+
+  const filter = {};
+
+  if (title) {
+    filter.title = {
+      $regex: escapeRegex(title),
+      $options: 'i',
+    };
+  }
+
+  if (author) {
+    filter.author = {
+      $regex: escapeRegex(author),
+      $options: 'i',
+    };
+  }
+
+  if (category) {
+    filter.category = {
+      $regex: escapeRegex(category),
+      $options: 'i',
+    };
+  }
+
+  if (availability === 'available') {
+    filter.availableCopies = {
+      $gt: 0,
+    };
+  }
+
+  if (availability === 'issued') {
+    filter.availableCopies = {
+      $lte: 0,
+    };
+  }
+
+  try {
+    const books =
+      await Book.find(filter)
+        .sort({
+          createdAt: -1,
+        });
+
+    res.json(books);
+  } catch (err) {
+    console.error(err);
+
+    res.status(500).json({
+      message: 'Server error.',
+      error: err.message,
+    });
+  }
+};
+
+const getBook = async (
+  req,
+  res
+) => {
+  try {
+    const book =
+      await Book.findById(
+        req.params.id
+      );
+
+    if (!book) {
+      return res.status(404).json({
+        message: 'Book not found.',
+      });
+    }
+
+    res.json(book);
+  } catch (err) {
+    console.error(err);
+
+    res.status(500).json({
+      message: 'Server error.',
+    });
+  }
+};
+
+const updateBook = async (
+  req,
+  res
+) => {
+  try {
+    const book =
+      await Book.findById(
+        req.params.id
+      );
+
+    if (!book) {
+      return res.status(404).json({
+        message: 'Book not found.',
+      });
+    }
+
+    const {
+      title,
+      author,
+      isbn,
+      category,
+      totalCopies,
+    } = req.body;
+
+    if (isbn && isbn !== book.isbn) {
+      const duplicate =
+        await Book.findOne({
+          isbn,
+          _id: {
+            $ne: book._id,
+          },
+        });
+
+      if (duplicate) {
+        return res.status(409).json({
+          message:
+            'Another book already uses this ISBN.',
+        });
+      }
+    }
+
+    if (
+      totalCopies !== undefined &&
+      Number(totalCopies) < 1
+    ) {
+      return res.status(400).json({
+        message:
+          'Total copies must be at least 1.',
+      });
+    }
+
+    const issuedCopies =
+      book.totalCopies -
+      book.availableCopies;
+
+    if (
+      totalCopies !== undefined &&
+      Number(totalCopies) < issuedCopies
+    ) {
+      return res.status(400).json({
+        message:
+          `Cannot reduce total copies below ${issuedCopies}; those copies are currently issued.`,
+      });
+    }
+
+    book.title =
+      title?.trim() || book.title;
+
+    book.author =
+      author?.trim() || book.author;
+
+    book.isbn =
+      isbn?.trim() || book.isbn;
+
+    book.category =
+      category?.trim() ||
+      book.category;
+
+    if (totalCopies !== undefined) {
+      const newTotal =
+        Number(totalCopies);
+
+      book.totalCopies =
+        newTotal;
+
+      book.availableCopies =
+        newTotal -
+        issuedCopies;
+    }
+
+    await book.save();
+
+    res.json(book);
+  } catch (err) {
+    console.error(err);
+
+    res.status(500).json({
+      message: 'Server error.',
+      error: err.message,
+    });
+  }
+};
+
+const deleteBook = async (
+  req,
+  res
+) => {
+  try {
+    const book =
+      await Book.findById(
+        req.params.id
+      );
+
+    if (!book) {
+      return res.status(404).json({
+        message: 'Book not found.',
+      });
+    }
+
+    const activeIssues =
+      await Transaction.countDocuments({
+        book: book._id,
+        status: 'issued',
+      });
+
+    if (activeIssues > 0) {
+      return res.status(409).json({
+        message:
+          'Cannot delete a book while copies are currently issued.',
+      });
+    }
+
+    await Book.findByIdAndDelete(
+      req.params.id
+    );
+
+    res.json({
+      message:
+        'Book removed successfully.',
+    });
+  } catch (err) {
+    console.error(err);
+
+    res.status(500).json({
+      message: 'Server error.',
+      error: err.message,
+    });
+  }
+};
+
+module.exports = {
+  createBook,
+  getBooks,
+  getBook,
+  updateBook,
+  deleteBook,
+};
+</file>
+
+<file path="server/controllers/transactionController.js">
+const Book = require('../models/Book');
+const Transaction = require('../models/Transaction');
+const { Parser } = require('json2csv');
+
+const issueBook = async (
+  req,
+  res
+) => {
+  const {
+    qrCodeData,
+    borrowerName,
+  } = req.body;
+
+  if (
+    !qrCodeData ||
+    !borrowerName?.trim()
+  ) {
+    return res.status(400).json({
+      message:
+        'QR code data and borrower name are required.',
+    });
+  }
+
+  try {
+    const book =
+      await Book.findOne({
+        qrCodeData,
+      });
+
+    if (!book) {
+      return res.status(404).json({
+        message:
+          'Invalid QR code: book not found.',
+      });
+    }
+
+    if (book.availableCopies <= 0) {
+      return res.status(409).json({
+        message:
+          'No copies of this book are currently available.',
+      });
+    }
+
+    const activeTransactions =
+      await Transaction.countDocuments({
+        book: book._id,
+        status: 'issued',
+      });
+
+    if (
+      activeTransactions >=
+      book.totalCopies
+    ) {
+      return res.status(409).json({
+        message:
+          'All copies of this book are currently issued.',
+      });
+    }
+
+    const transaction =
+      await Transaction.create({
+        book: book._id,
+        borrowerName:
+          borrowerName.trim(),
+        issueTimestamp: new Date(),
+        status: 'issued',
+        dueDate: new Date(
+          Date.now() +
+            14 *
+              24 *
+              60 *
+              60 *
+              1000
+        ),
+      });
+
+    book.availableCopies -= 1;
+
+    await book.save();
+
+    await transaction.populate(
+      'book',
+      'title author isbn'
+    );
+
+    res.status(201).json(
+      transaction
+    );
+  } catch (err) {
+    console.error(err);
+
+    res.status(500).json({
+      message: 'Server error.',
+      error: err.message,
+    });
+  }
+};
+
+const returnBook = async (
+  req,
+  res
+) => {
+  const { qrCodeData } =
+    req.body;
+
+  if (!qrCodeData) {
+    return res.status(400).json({
+      message:
+        'QR code data is required.',
+    });
+  }
+
+  try {
+    const book =
+      await Book.findOne({
+        qrCodeData,
+      });
+
+    if (!book) {
+      return res.status(404).json({
+        message:
+          'Invalid QR code: book not found.',
+      });
+    }
+
+    const transaction =
+      await Transaction.findOne({
+        book: book._id,
+        status: 'issued',
+      }).sort({
+        issueTimestamp: 1,
+      });
+
+    if (!transaction) {
+      return res.status(409).json({
+        message:
+          'No active issue record found for this book.',
+      });
+    }
+
+    transaction.status =
+      'returned';
+
+    transaction.returnTimestamp =
+      new Date();
+
+    await transaction.save();
+
+    book.availableCopies =
+      Math.min(
+        book.totalCopies,
+        book.availableCopies + 1
+      );
+
+    await book.save();
+
+    await transaction.populate(
+      'book',
+      'title author isbn'
+    );
+
+    res.json(transaction);
+  } catch (err) {
+    console.error(err);
+
+    res.status(500).json({
+      message: 'Server error.',
+      error: err.message,
+    });
+  }
+};
+
+const getTransactions = async (
+  req,
+  res
+) => {
+  const {
+    status,
+    search,
+    borrowerName,
+  } = req.query;
+
+  const filter = {};
+
+  if (status) {
+    filter.status = status;
+  }
+
+  if (borrowerName) {
+    filter.borrowerName = {
+      $regex: borrowerName,
+      $options: 'i',
+    };
+  }
+
+  try {
+    if (search) {
+      const books =
+        await Book.find({
+          $or: [
+            {
+              title: {
+                $regex: search,
+                $options: 'i',
+              },
+            },
+            {
+              author: {
+                $regex: search,
+                $options: 'i',
+              },
+            },
+            {
+              isbn: {
+                $regex: search,
+                $options: 'i',
+              },
+            },
+          ],
+        }).select('_id');
+
+      filter.book = {
+        $in: books.map(
+          (book) => book._id
+        ),
+      };
+    }
+
+    const transactions =
+      await Transaction.find(
+        filter
+      )
+        .populate(
+          'book',
+          'title author isbn'
+        )
+        .sort({
+          issueTimestamp: -1,
+        });
+
+    res.json(transactions);
+  } catch (err) {
+    console.error(err);
+
+    res.status(500).json({
+      message: 'Server error.',
+      error: err.message,
+    });
+  }
+};
+
+const exportTransactions = async (
+  req,
+  res
+) => {
+  try {
+    const transactions =
+      await Transaction.find()
+        .populate(
+          'book',
+          'title author isbn'
+        )
+        .lean();
+
+    const data =
+      transactions.map(
+        (transaction) => ({
+          'Book Title':
+            transaction.book
+              ?.title || '',
+
+          Author:
+            transaction.book
+              ?.author || '',
+
+          'Book ID':
+            transaction.book
+              ?.isbn || '',
+
+          'Issued To':
+            transaction.borrowerName,
+
+          'Issue Timestamp':
+            transaction.issueTimestamp
+              ? transaction.issueTimestamp.toISOString()
+              : '',
+
+          'Return Timestamp':
+            transaction.returnTimestamp
+              ? transaction.returnTimestamp.toISOString()
+              : '',
+
+          'Current Status':
+            transaction.status,
+        })
+      );
+
+    const fields = [
+      'Book Title',
+      'Author',
+      'Book ID',
+      'Issued To',
+      'Issue Timestamp',
+      'Return Timestamp',
+      'Current Status',
+    ];
+
+    const parser =
+      new Parser({
+        fields,
+      });
+
+    const csv =
+      parser.parse(data);
+
+    res.header(
+      'Content-Type',
+      'text/csv'
+    );
+
+    res.attachment(
+      'transactions.csv'
+    );
+
+    res.send(csv);
+  } catch (err) {
+    console.error(err);
+
+    res.status(500).json({
+      message: 'Server error.',
+      error: err.message,
+    });
+  }
+};
+
+module.exports = {
+  issueBook,
+  returnBook,
+  getTransactions,
+  exportTransactions,
+};
+</file>
+
+<file path="server/middleware/validation.js">
+const { body } = require('express-validator');
+
+const bookValidation = [
+  body('title').notEmpty().withMessage('Title is required'),
+  body('author').notEmpty().withMessage('Author is required'),
+  body('isbn').notEmpty().withMessage('ISBN is required'),
+  body('category').notEmpty().withMessage('Category is required'),
+  body('totalCopies').isInt({ min: 1 }).withMessage('Total copies must be at least 1'),
+];
+
+module.exports = { bookValidation };
+</file>
+
+<file path="server/models/Book.js">
+const mongoose = require('mongoose');
+const { v4: uuidv4 } = require('uuid'); // we need to install uuid
+
+const bookSchema = new mongoose.Schema(
+  {
+    title: { type: String, required: true, trim: true },
+    author: { type: String, required: true, trim: true },
+    isbn: { type: String, required: true, unique: true, trim: true },
+    category: { type: String, required: true, trim: true },
+    totalCopies: { type: Number, required: true, min: 1 },
+    availableCopies: { type: Number, default: 0 },
+    qrCodeData: { type: String, unique: true, default: null },
+  },
+  { timestamps: true }
+);
+
+// Pre-save hook: set availableCopies = totalCopies on creation, generate qrCodeData
+bookSchema.pre('save', function (next) {
+  if (this.isNew) {
+    this.availableCopies = this.totalCopies;
+    this.qrCodeData = `BOOK-${uuidv4()}`;
+  }
+  next();
+});
+
+module.exports = mongoose.model('Book', bookSchema);
+</file>
+
+<file path="server/models/Transaction.js">
+const mongoose = require('mongoose');
+
+const transactionSchema = new mongoose.Schema(
+  {
+    book: { type: mongoose.Schema.Types.ObjectId, ref: 'Book', required: true },
+    borrowerName: { type: String, required: true, trim: true },
+    borrowerId: { type: String, default: '' }, // optional user ID
+    issueTimestamp: { type: Date, required: true },
+    returnTimestamp: { type: Date, default: null },
+    status: {
+      type: String,
+      enum: ['issued', 'returned'],
+      default: 'issued',
+    },
+    dueDate: { type: Date }, // optional: for overdue calculation
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model('Transaction', transactionSchema);
+</file>
+
+<file path="server/routes/bookRoutes.js">
+const express = require('express');
+const router = express.Router();
+const {
+  createBook,
+  getBooks,
+  getBook,
+  updateBook,
+  deleteBook,
+} = require('../controllers/bookController');
+const { bookValidation } = require('../middleware/validation');
+
+// POST /api/books - create a book (with validation)
+router.post('/', bookValidation, createBook);
+
+// GET /api/books - list all books
+router.get('/', getBooks);
+
+// GET /api/books/:id - single book
+router.get('/:id', getBook);
+
+// PUT /api/books/:id - update book
+router.put('/:id', updateBook);
+
+// DELETE /api/books/:id - delete book
+router.delete('/:id', deleteBook);
+
+module.exports = router;
+</file>
+
+<file path="server/routes/transactionRoutes.js">
+const express = require('express');
+const router = express.Router();
+const {
+  issueBook,
+  returnBook,
+  getTransactions,
+  exportTransactions,
+} = require('../controllers/transactionController');
+
+router.post('/issue', issueBook);
+router.post('/return', returnBook);
+router.get('/', getTransactions);
+router.get('/export', exportTransactions);
+
+module.exports = router;
+</file>
+
+<file path="server/package.json">
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.2",
+    "json2csv": "^6.0.0-alpha.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.9.5",
+    "qrcode": "^1.5.4",
+    "uuid": "^14.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
+</file>
+
+<file path="server/server.js">
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+// Routes
+app.use('/api/books', require('./routes/bookRoutes'));
+app.use('/api/transactions', require('./routes/transactionRoutes'));
+
+app.get('/', (req, res) => res.send('Library API running...'));
+
+const PORT = process.env.PORT || 5000;
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log('MongoDB connected');
+    app.listen(PORT, () => console.log(`Server on ${PORT}`));
+  })
+  .catch(err => console.error('DB connection error:', err.message));
+</file>
+
+</files>

@@ -1,0 +1,539 @@
+import { useState } from 'react';
+import {
+  ArrowRight,
+  BookOpen,
+  Check,
+  Plus,
+  RotateCcw,
+} from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+
+import api from '../api';
+
+const categories = [
+  'Fiction',
+  'Literature',
+  'Non-Fiction',
+  'Biography',
+  'History',
+  'Philosophy',
+  'Psychology',
+  'Self Help',
+  'Productivity',
+  'Science',
+  'Technology',
+  'Computer Science',
+  'Engineering',
+  'Business',
+  'Finance',
+  'Economics',
+  'Arts',
+  'Design',
+  'Travel',
+  'Health',
+  'Mathematics',
+  'Environment',
+];
+
+const initialForm = {
+  title: '',
+  author: '',
+  isbn: '',
+  category: '',
+  totalCopies: 1,
+};
+
+export default function AddBook() {
+  const navigate = useNavigate();
+
+  const [form, setForm] =
+    useState(initialForm);
+
+  const [errors, setErrors] =
+    useState({});
+
+  const [serverError, setServerError] =
+    useState('');
+
+  const [successBook, setSuccessBook] =
+    useState(null);
+
+  const [submitting, setSubmitting] =
+    useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } =
+      event.target;
+
+    setForm((previous) => ({
+      ...previous,
+
+      [name]:
+        name === 'totalCopies'
+          ? Number(value)
+          : value,
+    }));
+
+    setErrors((previous) => ({
+      ...previous,
+      [name]: '',
+    }));
+
+    setServerError('');
+  };
+
+  const validate = () => {
+    const nextErrors = {};
+
+    if (!form.title.trim()) {
+      nextErrors.title =
+        'Book title is required.';
+    }
+
+    if (!form.author.trim()) {
+      nextErrors.author =
+        'Author name is required.';
+    }
+
+    if (!form.isbn.trim()) {
+      nextErrors.isbn =
+        'ISBN / Book ID is required.';
+    }
+
+    if (!form.category) {
+      nextErrors.category =
+        'Select a category.';
+    }
+
+    if (
+      !Number.isInteger(
+        Number(form.totalCopies)
+      ) ||
+      Number(form.totalCopies) < 1
+    ) {
+      nextErrors.totalCopies =
+        'Enter at least 1 copy.';
+    }
+
+    return nextErrors;
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const nextErrors = validate();
+
+    if (Object.keys(nextErrors).length) {
+      setErrors(nextErrors);
+      return;
+    }
+
+    try {
+      setSubmitting(true);
+      setServerError('');
+      setSuccessBook(null);
+
+      const response = await api.post(
+        '/books',
+        {
+          title: form.title.trim(),
+          author: form.author.trim(),
+          isbn: form.isbn.trim(),
+          category: form.category,
+          totalCopies: Number(
+            form.totalCopies
+          ),
+        }
+      );
+
+      setSuccessBook(response.data);
+
+      setForm(initialForm);
+      setErrors({});
+    } catch (error) {
+      console.error(
+        'Add book failed:',
+        error
+      );
+
+      setServerError(
+        error.response?.data?.message ||
+          'The book could not be added.'
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="add-book-page">
+      <section className="add-book-header">
+        <div>
+          <span className="add-book-kicker">
+            COLLECTION / NEW RECORD
+          </span>
+
+          <h1>
+            Add a
+            <br />
+            <em>new title.</em>
+          </h1>
+
+          <p>
+            Register a physical book in NexLib.
+            A unique QR identity will be generated
+            automatically after it is saved.
+          </p>
+        </div>
+
+        <div className="add-book-header__side">
+          <span>
+            RECORD
+            <strong>001</strong>
+          </span>
+
+          <span>
+            STATUS
+            <strong>READY</strong>
+          </span>
+        </div>
+      </section>
+
+      <section className="add-book-layout">
+        <aside className="add-book-preview">
+          <div className="preview-index">
+            NEW / BOOK
+          </div>
+
+          <div className="book-object">
+            <div className="book-object__spine" />
+
+            <div className="book-object__cover">
+              <span className="book-object__symbol">
+                <BookOpen
+                  size={28}
+                  strokeWidth={1.4}
+                />
+              </span>
+
+              <span className="book-object__category">
+                {form.category ||
+                  'CATEGORY'}
+              </span>
+
+              <strong>
+                {form.title ||
+                  'Your new title'}
+              </strong>
+
+              <small>
+                {form.author ||
+                  'Author name'}
+              </small>
+
+              <div className="book-object__lines">
+                <i />
+                <i />
+                <i />
+              </div>
+            </div>
+          </div>
+
+          <div className="preview-note">
+            <span>
+              QR ID
+            </span>
+
+            <p>
+              Generated by the server when
+              the record is created.
+            </p>
+          </div>
+        </aside>
+
+        <div className="add-book-form-wrap">
+          <div className="form-heading">
+            <div>
+              <span>
+                01 — BOOK DETAILS
+              </span>
+
+              <h2>
+                Tell us about it.
+              </h2>
+            </div>
+
+            <BookOpen
+              size={20}
+              strokeWidth={1.5}
+            />
+          </div>
+
+          <form
+            className="add-book-form"
+            onSubmit={handleSubmit}
+          >
+            <div className="form-field form-field--wide">
+              <label htmlFor="title">
+                <span>01</span>
+                Book title
+              </label>
+
+              <input
+                id="title"
+                name="title"
+                type="text"
+                value={form.title}
+                onChange={handleChange}
+                placeholder="e.g. Atomic Habits"
+              />
+
+              {errors.title && (
+                <small>
+                  {errors.title}
+                </small>
+              )}
+            </div>
+
+            <div className="form-grid">
+              <div className="form-field">
+                <label htmlFor="author">
+                  <span>02</span>
+                  Author
+                </label>
+
+                <input
+                  id="author"
+                  name="author"
+                  type="text"
+                  value={form.author}
+                  onChange={handleChange}
+                  placeholder="e.g. James Clear"
+                />
+
+                {errors.author && (
+                  <small>
+                    {errors.author}
+                  </small>
+                )}
+              </div>
+
+              <div className="form-field">
+                <label htmlFor="isbn">
+                  <span>03</span>
+                  ISBN / Book ID
+                </label>
+
+                <input
+                  id="isbn"
+                  name="isbn"
+                  type="text"
+                  value={form.isbn}
+                  onChange={handleChange}
+                  placeholder="e.g. 9781847941831"
+                />
+
+                {errors.isbn && (
+                  <small>
+                    {errors.isbn}
+                  </small>
+                )}
+              </div>
+            </div>
+
+            <div className="form-grid">
+              <div className="form-field">
+                <label htmlFor="category">
+                  <span>04</span>
+                  Category
+                </label>
+
+                <select
+                  id="category"
+                  name="category"
+                  value={form.category}
+                  onChange={handleChange}
+                >
+                  <option value="">
+                    Select category
+                  </option>
+
+                  {categories.map(
+                    (category) => (
+                      <option
+                        key={category}
+                        value={category}
+                      >
+                        {category}
+                      </option>
+                    )
+                  )}
+                </select>
+
+                {errors.category && (
+                  <small>
+                    {errors.category}
+                  </small>
+                )}
+              </div>
+
+              <div className="form-field">
+                <label htmlFor="totalCopies">
+                  <span>05</span>
+                  Total copies
+                </label>
+
+                <div className="number-control">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setForm((previous) => ({
+                        ...previous,
+                        totalCopies:
+                          Math.max(
+                            1,
+                            Number(
+                              previous.totalCopies
+                            ) - 1
+                          ),
+                      }))
+                    }
+                  >
+                    −
+                  </button>
+
+                  <input
+                    id="totalCopies"
+                    name="totalCopies"
+                    type="number"
+                    min="1"
+                    value={form.totalCopies}
+                    onChange={
+                      handleChange
+                    }
+                  />
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setForm((previous) => ({
+                        ...previous,
+                        totalCopies:
+                          Number(
+                            previous.totalCopies
+                          ) + 1,
+                      }))
+                    }
+                  >
+                    +
+                  </button>
+                </div>
+
+                {errors.totalCopies && (
+                  <small>
+                    {errors.totalCopies}
+                  </small>
+                )}
+              </div>
+            </div>
+
+            {serverError && (
+              <div
+                className="form-status form-status--error"
+                role="alert"
+              >
+                <RotateCcw size={17} />
+
+                <div>
+                  <strong>
+                    Could not create record
+                  </strong>
+
+                  <p>
+                    {serverError}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {successBook && (
+              <div
+                className="form-status form-status--success"
+                role="status"
+              >
+                <Check size={18} />
+
+                <div>
+                  <strong>
+                    Book added successfully.
+                  </strong>
+
+                  <p>
+                    {successBook.title}
+                    {' '}now has{' '}
+                    {successBook.totalCopies}
+                    {' '}registered copies.
+                  </p>
+
+                  <code>
+                    {successBook.qrCodeData}
+                  </code>
+                </div>
+              </div>
+            )}
+
+            <div className="form-actions">
+              <Link
+                to="/books"
+                className="form-secondary"
+              >
+                Cancel
+              </Link>
+
+              <button
+                type="submit"
+                className="form-submit"
+                disabled={submitting}
+              >
+                {submitting ? (
+                  'Creating record...'
+                ) : (
+                  <>
+                    Create book record
+                    <ArrowRight
+                      size={17}
+                    />
+                  </>
+                )}
+              </button>
+            </div>
+          </form>
+
+          {successBook && (
+            <div className="after-success">
+              <button
+                type="button"
+                onClick={() =>
+                  setSuccessBook(null)
+                }
+              >
+                <Plus size={15} />
+                Add another
+              </button>
+
+              <button
+                type="button"
+                onClick={() =>
+                  navigate('/books')
+                }
+              >
+                View collection
+                <ArrowRight size={15} />
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+}
