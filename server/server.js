@@ -9,7 +9,7 @@ const app = express();
 // ✅ CORS Configuration
 app.use(cors({
   origin: [
-    'https://client-re-xchange.vercel.app',  // ← YOUR Vercel URL
+    'https://client-mu-olive-82.vercel.app',  // ← YOUR Vercel URL
     'http://localhost:3000',
     'http://localhost:5173'
   ],
