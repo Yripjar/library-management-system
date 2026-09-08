@@ -1,41 +1,76 @@
 import { useEffect, useMemo, useState } from 'react';
+
 import {
   Download,
   RefreshCw,
   Search,
   ArrowUpRight,
 } from 'lucide-react';
+
 import { Link } from 'react-router-dom';
 
 import api from '../api';
 import LibraryNetwork from '../components/LibraryNetwork';
 
 export default function Dashboard() {
-  const [books, setBooks] = useState([]);
-  const [transactions, setTransactions] = useState([]);
-  const [selectedBook, setSelectedBook] = useState(null);
+  const [books, setBooks] =
+    useState([]);
 
-  const [search, setSearch] = useState('');
-  const [statusFilter, setStatusFilter] = useState('');
+  const [transactions, setTransactions] =
+    useState([]);
 
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [selectedBook, setSelectedBook] =
+    useState(null);
+
+  const [search, setSearch] =
+    useState('');
+
+  const [statusFilter, setStatusFilter] =
+    useState('');
+
+  const [loading, setLoading] =
+    useState(true);
+
+  const [error, setError] =
+    useState('');
 
   const fetchData = async () => {
     try {
       setLoading(true);
       setError('');
 
-      const [booksResponse, transactionsResponse] =
-        await Promise.all([
-          api.get('/books'),
-          api.get('/transactions'),
-        ]);
+      const [
+        booksResponse,
+        transactionsResponse,
+      ] = await Promise.all([
+        api.get('/books'),
+        api.get('/transactions'),
+      ]);
 
-      setBooks(booksResponse.data || []);
-      setTransactions(
-        transactionsResponse.data || []
+      const freshBooks =
+        booksResponse.data || [];
+
+      setBooks(
+        freshBooks
       );
+
+      setTransactions(
+        transactionsResponse.data ||
+          []
+      );
+
+      if (selectedBook) {
+        const freshSelected =
+          freshBooks.find(
+            (book) =>
+              book._id ===
+              selectedBook._id
+          );
+
+        setSelectedBook(
+          freshSelected || null
+        );
+      }
     } catch (err) {
       console.error(err);
 
@@ -50,32 +85,53 @@ export default function Dashboard() {
 
   useEffect(() => {
     fetchData();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  /* =========================================
+     OVERALL LIBRARY STATS
+  ========================================= */
+
   const stats = useMemo(() => {
-    const totalCopies = books.reduce(
-      (sum, book) =>
-        sum + Number(book.totalCopies || 0),
-      0
-    );
+    const totalCopies =
+      books.reduce(
+        (sum, book) =>
+          sum +
+          Number(
+            book.totalCopies || 0
+          ),
+        0
+      );
 
-    const availableCopies = books.reduce(
-      (sum, book) =>
-        sum + Number(book.availableCopies || 0),
-      0
-    );
+    const availableCopies =
+      books.reduce(
+        (sum, book) =>
+          sum +
+          Number(
+            book.availableCopies ||
+              0
+          ),
+        0
+      );
 
-    const issuedCopies = Math.max(
-      totalCopies - availableCopies,
-      0
-    );
+    const issuedCopies =
+      Math.max(
+        totalCopies -
+          availableCopies,
+        0
+      );
 
-    const overdue = transactions.filter(
-      (transaction) =>
-        transaction.status === 'issued' &&
-        transaction.dueDate &&
-        new Date(transaction.dueDate) < new Date()
-    ).length;
+    const overdue =
+      transactions.filter(
+        (transaction) =>
+          transaction.status ===
+            'issued' &&
+          transaction.dueDate &&
+          new Date(
+            transaction.dueDate
+          ) < new Date()
+      ).length;
 
     const availability =
       totalCopies > 0
@@ -87,166 +143,395 @@ export default function Dashboard() {
         : 0;
 
     return {
-      titles: books.length,
-      copies: totalCopies,
-      available: availableCopies,
-      issued: issuedCopies,
+      titles:
+        books.length,
+      copies:
+        totalCopies,
+      available:
+        availableCopies,
+      issued:
+        issuedCopies,
       overdue,
       availability,
     };
-  }, [books, transactions]);
-
-  const filteredTransactions = useMemo(() => {
-    const query =
-      search.trim().toLowerCase();
-
-    return transactions.filter(
-      (transaction) => {
-        const matchesStatus =
-          !statusFilter ||
-          transaction.status === statusFilter;
-
-        const matchesSearch =
-          !query ||
-          transaction.borrowerName
-            ?.toLowerCase()
-            .includes(query) ||
-          transaction.book?.title
-            ?.toLowerCase()
-            .includes(query);
-
-        return (
-          matchesStatus &&
-          matchesSearch
-        );
-      }
-    );
   }, [
+    books,
     transactions,
-    search,
-    statusFilter,
   ]);
 
-  const activity = useMemo(() => {
-    const days = [];
+  /* =========================================
+     SELECTED BOOK
+  ========================================= */
 
-    for (let i = 6; i >= 0; i -= 1) {
-      const date = new Date();
-
-      date.setHours(0, 0, 0, 0);
-      date.setDate(
-        date.getDate() - i
-      );
-
-      const count = transactions.filter(
-        (transaction) => {
-          if (
-            !transaction.issueTimestamp
-          ) {
-            return false;
-          }
-
-          const issuedAt =
-            new Date(
-              transaction.issueTimestamp
-            );
-
-          return (
-            issuedAt.getFullYear() ===
-              date.getFullYear() &&
-            issuedAt.getMonth() ===
-              date.getMonth() &&
-            issuedAt.getDate() ===
-              date.getDate()
-          );
-        }
-      ).length;
-
-      days.push({
-        label:
-          date.toLocaleDateString(
-            undefined,
-            {
-              weekday: 'short',
-            }
-          ),
-        count,
-      });
+  const activeBook = useMemo(() => {
+    if (!selectedBook) {
+      return null;
     }
 
-    return days;
-  }, [transactions]);
+    return (
+      books.find(
+        (book) =>
+          book._id ===
+          selectedBook._id
+      ) || null
+    );
+  }, [
+    books,
+    selectedBook,
+  ]);
 
-  const maxActivity = Math.max(
-    ...activity.map(
-      (item) => item.count
-    ),
-    1
-  );
+  /* =========================================
+     SELECTED BOOK STATS
+  ========================================= */
 
-  const exportCsv = async () => {
-    try {
-      const response = await api.get(
-        '/transactions/export',
-        {
-          responseType: 'blob',
-        }
-      );
+  const selectedStats =
+    useMemo(() => {
+      if (!activeBook) {
+        return null;
+      }
 
-      const blob = new Blob(
-        [response.data],
-        {
-          type: 'text/csv',
-        }
-      );
-
-      const url =
-        window.URL.createObjectURL(
-          blob
+      const total =
+        Number(
+          activeBook.totalCopies ||
+            0
         );
 
-      const link =
-        document.createElement('a');
+      const available =
+        Number(
+          activeBook.availableCopies ||
+            0
+        );
 
-      link.href = url;
-      link.download =
-        'nexlib-transactions.csv';
+      const issued =
+        Math.max(
+          total - available,
+          0
+        );
 
-      document.body.appendChild(link);
+      const overdue =
+        transactions.filter(
+          (transaction) =>
+            transaction.book?._id ===
+              activeBook._id &&
+            transaction.status ===
+              'issued' &&
+            transaction.dueDate &&
+            new Date(
+              transaction.dueDate
+            ) < new Date()
+        ).length;
 
-      link.click();
+      const availability =
+        total > 0
+          ? Math.round(
+              (available /
+                total) *
+                100
+            )
+          : 0;
 
-      link.remove();
+      return {
+        total,
+        available,
+        issued,
+        overdue,
+        availability,
+      };
+    }, [
+      activeBook,
+      transactions,
+    ]);
 
-      window.URL.revokeObjectURL(url);
-    } catch (err) {
-      setError(
-        err.response?.data?.message ||
-          'Unable to export transactions.'
+  /* =========================================
+     TRANSACTION FILTER
+  ========================================= */
+
+  const filteredTransactions =
+    useMemo(() => {
+      let result =
+        activeBook
+          ? transactions.filter(
+              (transaction) =>
+                transaction.book?._id ===
+                activeBook._id
+            )
+          : transactions;
+
+      const query =
+        search
+          .trim()
+          .toLowerCase();
+
+      if (query) {
+        result =
+          result.filter(
+            (transaction) =>
+              transaction.borrowerName
+                ?.toLowerCase()
+                .includes(query) ||
+              transaction.book?.title
+                ?.toLowerCase()
+                .includes(query) ||
+              transaction.book?.author
+                ?.toLowerCase()
+                .includes(query)
+          );
+      }
+
+      if (statusFilter) {
+        result =
+          result.filter(
+            (transaction) =>
+              transaction.status ===
+              statusFilter
+          );
+      }
+
+      return [
+        ...result,
+      ].sort(
+        (a, b) =>
+          new Date(
+            b.issueTimestamp
+          ) -
+          new Date(
+            a.issueTimestamp
+          )
       );
-    }
-  };
+    }, [
+      transactions,
+      activeBook,
+      search,
+      statusFilter,
+    ]);
+
+  /* =========================================
+     7 DAY GRAPH
+  ========================================= */
+
+  const activity =
+    useMemo(() => {
+      const days = [];
+
+      const sourceTransactions =
+        activeBook
+          ? transactions.filter(
+              (transaction) =>
+                transaction.book?._id ===
+                activeBook._id
+            )
+          : transactions;
+
+      for (
+        let i = 6;
+        i >= 0;
+        i -= 1
+      ) {
+        const date =
+          new Date();
+
+        date.setHours(
+          0,
+          0,
+          0,
+          0
+        );
+
+        date.setDate(
+          date.getDate() -
+            i
+        );
+
+        const count =
+          sourceTransactions.filter(
+            (transaction) => {
+              if (
+                !transaction.issueTimestamp
+              ) {
+                return false;
+              }
+
+              const issueDate =
+                new Date(
+                  transaction.issueTimestamp
+                );
+
+              return (
+                issueDate.getFullYear() ===
+                  date.getFullYear() &&
+                issueDate.getMonth() ===
+                  date.getMonth() &&
+                issueDate.getDate() ===
+                  date.getDate()
+              );
+            }
+          ).length;
+
+        days.push({
+          label:
+            date.toLocaleDateString(
+              undefined,
+              {
+                weekday:
+                  'short',
+              }
+            ),
+          count,
+        });
+      }
+
+      return days;
+    }, [
+      transactions,
+      activeBook,
+    ]);
+
+  const maxActivity =
+    Math.max(
+      ...activity.map(
+        (item) =>
+          item.count
+      ),
+      1
+    );
+
+  /* =========================================
+     CURRENT DISPLAY NUMBERS
+  ========================================= */
+
+  const currentAvailability =
+    activeBook
+      ? selectedStats?.availability ||
+        0
+      : stats.availability;
+
+  const currentAvailable =
+    activeBook
+      ? selectedStats?.available ||
+        0
+      : stats.available;
+
+  const currentIssued =
+    activeBook
+      ? selectedStats?.issued ||
+        0
+      : stats.issued;
+
+  /* =========================================
+     EXPORT
+  ========================================= */
+
+  const exportCsv =
+    async () => {
+      try {
+        const response =
+          await api.get(
+            '/transactions/export',
+            {
+              responseType:
+                'blob',
+            }
+          );
+
+        const blob =
+          new Blob(
+            [response.data],
+            {
+              type: 'text/csv',
+            }
+          );
+
+        const url =
+          window.URL.createObjectURL(
+            blob
+          );
+
+        const link =
+          document.createElement(
+            'a'
+          );
+
+        link.href = url;
+
+        link.download =
+          'nexlib-transactions.csv';
+
+        document.body.appendChild(
+          link
+        );
+
+        link.click();
+
+        link.remove();
+
+        window.URL.revokeObjectURL(
+          url
+        );
+      } catch (err) {
+        setError(
+          err.response?.data?.message ||
+            'Unable to export transactions.'
+        );
+      }
+    };
 
   return (
     <div className="workspace-page">
-      {/* HEADER */}
+
+      {/* =========================
+          HEADER
+      ========================= */}
 
       <header className="workspace-header">
+
         <div className="workspace-title">
+
           <span className="eyebrow">
             CONTROL ROOM / LIVE STATE
           </span>
 
           <h1>
-            Library, <em>in motion.</em>
+            Library,{' '}
+            <em>
+              in motion.
+            </em>
           </h1>
+
+          {activeBook && (
+            <p className="workspace-selection-label">
+              Inspecting:{' '}
+              <strong>
+                {
+                  activeBook.title
+                }
+              </strong>
+            </p>
+          )}
+
         </div>
 
         <div className="workspace-actions">
+
+          {activeBook && (
+            <button
+              type="button"
+              className="utility-link"
+              onClick={() =>
+                setSelectedBook(
+                  null
+                )
+              }
+            >
+              Clear selection
+            </button>
+          )}
+
           <button
             type="button"
             className="utility-link"
-            onClick={fetchData}
+            onClick={
+              fetchData
+            }
             disabled={loading}
           >
             <RefreshCw
@@ -257,18 +542,24 @@ export default function Dashboard() {
                   : ''
               }
             />
+
             Refresh
           </button>
 
           <button
             type="button"
             className="utility-link utility-link--solid"
-            onClick={exportCsv}
+            onClick={
+              exportCsv
+            }
           >
             <Download size={15} />
+
             Export
           </button>
+
         </div>
+
       </header>
 
       {error && (
@@ -282,18 +573,25 @@ export default function Dashboard() {
 
       {loading ? (
         <div className="workspace-loading">
+
           <div className="loading-line" />
 
           <span>
             Loading library state...
           </span>
+
         </div>
       ) : (
         <>
-          {/* LIVE OVERVIEW */}
+
+          {/* =========================
+              OVERVIEW
+          ========================= */}
 
           <section className="dashboard-overview">
+
             <div className="overview-item">
+
               <span className="eyebrow">
                 Titles
               </span>
@@ -305,9 +603,11 @@ export default function Dashboard() {
               <small>
                 registered titles
               </small>
+
             </div>
 
             <div className="overview-item">
+
               <span className="eyebrow">
                 Copies
               </span>
@@ -319,9 +619,11 @@ export default function Dashboard() {
               <small>
                 physical copies
               </small>
+
             </div>
 
             <div className="overview-item">
+
               <span className="eyebrow">
                 Issued
               </span>
@@ -333,16 +635,19 @@ export default function Dashboard() {
               <small>
                 currently circulating
               </small>
+
             </div>
 
             <div className="overview-item">
+
               <span className="eyebrow">
                 Overdue
               </span>
 
               <strong
                 className={
-                  stats.overdue > 0
+                  stats.overdue >
+                  0
                     ? 'signal-text'
                     : ''
                 }
@@ -353,93 +658,161 @@ export default function Dashboard() {
               <small>
                 require attention
               </small>
+
             </div>
+
           </section>
 
-          {/* MAIN CONTROL AREA */}
+          {/* =========================
+              MAIN CONTROL
+          ========================= */}
 
           <section className="dashboard-main">
+
             <div className="dashboard-network">
+
               <div className="dashboard-network__header">
+
                 <div>
+
                   <span className="section-index">
                     01 / LIBRARY FIELD
                   </span>
 
                   <h2>
-                    Explore the collection.
+                    {activeBook
+                      ? activeBook.title
+                      : 'Explore the collection.'}
                   </h2>
+
+                  <p className="dashboard-field-subtitle">
+                    {activeBook
+                      ? 'Live state for the selected title.'
+                      : 'Click a title to inspect its live state.'}
+                  </p>
+
                 </div>
 
                 <div className="dashboard-availability">
+
                   <span className="eyebrow">
-                    Available
+                    {activeBook
+                      ? 'Selected available'
+                      : 'Available'}
                   </span>
 
                   <strong>
-                    {stats.availability}%
+                    {
+                      currentAvailability
+                    }
+                    %
                   </strong>
+
                 </div>
+
               </div>
 
               <div className="dashboard-network__field">
+
                 <LibraryNetwork
                   books={books}
                   transactions={
                     transactions
                   }
                   selectedId={
-                    selectedBook?._id
+                    activeBook?._id
                   }
-                  onSelect={setSelectedBook}
+                  onSelect={
+                    setSelectedBook
+                  }
                 />
+
               </div>
 
               <div className="dashboard-network__footer">
+
                 <span>
-                  Click a title to inspect
+                  {activeBook
+                    ? 'Selected title / live state'
+                    : 'Click a title to inspect'}
                 </span>
 
                 <span>
-                  {stats.available}{' '}
+                  {
+                    currentAvailable
+                  }{' '}
                   AVAILABLE /{' '}
-                  {stats.issued}{' '}
+                  {
+                    currentIssued
+                  }{' '}
                   ISSUED
                 </span>
+
               </div>
+
             </div>
 
-            {/* SIDE PANEL */}
+            {/* =====================
+                SIDE PANEL
+            ===================== */}
 
             <aside className="dashboard-side">
+
               <div className="dashboard-side__block dashboard-side__selected">
+
                 <span className="eyebrow">
                   02 / SELECTED TITLE
                 </span>
 
-                {selectedBook ? (
+                {activeBook ? (
                   <>
+
                     <h2>
-                      {selectedBook.title}
+                      {
+                        activeBook.title
+                      }
                     </h2>
 
                     <p>
-                      {selectedBook.author}
+                      {
+                        activeBook.author
+                      }
                     </p>
 
                     <div className="selected-details">
+
                       <div>
                         <span>
-                          Availability
+                          Available
                         </span>
 
                         <strong>
                           {
-                            selectedBook.availableCopies
+                            selectedStats?.available
                           }
-                          /
+                        </strong>
+                      </div>
+
+                      <div>
+                        <span>
+                          Issued
+                        </span>
+
+                        <strong>
                           {
-                            selectedBook.totalCopies
+                            selectedStats?.issued
+                          }
+                        </strong>
+                      </div>
+
+                      <div>
+                        <span>
+                          Total copies
+                        </span>
+
+                        <strong>
+                          {
+                            selectedStats?.total
                           }
                         </strong>
                       </div>
@@ -451,7 +824,7 @@ export default function Dashboard() {
 
                         <strong>
                           {
-                            selectedBook.category ||
+                            activeBook.category ||
                             '—'
                           }
                         </strong>
@@ -463,9 +836,32 @@ export default function Dashboard() {
                         </span>
 
                         <strong>
-                          {selectedBook.isbn}
+                          {
+                            activeBook.isbn
+                          }
                         </strong>
                       </div>
+
+                      <div>
+                        <span>
+                          Overdue
+                        </span>
+
+                        <strong
+                          className={
+                            selectedStats
+                              ?.overdue >
+                            0
+                              ? 'signal-text'
+                              : ''
+                          }
+                        >
+                          {
+                            selectedStats?.overdue
+                          }
+                        </strong>
+                      </div>
+
                     </div>
 
                     <Link
@@ -477,56 +873,87 @@ export default function Dashboard() {
                         size={14}
                       />
                     </Link>
+
                   </>
                 ) : (
+
                   <div className="selected-empty">
+
                     <div>
                       +
                     </div>
 
                     <p>
-                      Click any book node in
-                      the field to inspect its
-                      live state.
+                      Click any book
+                      node to inspect
+                      its live state.
                     </p>
+
                   </div>
+
                 )}
+
               </div>
 
+              {/* =====================
+                  CIRCULATION
+              ===================== */}
+
               <div className="dashboard-side__block">
+
                 <span className="eyebrow">
                   03 / CIRCULATION
                 </span>
 
+                <div className="circulation-context">
+                  {activeBook
+                    ? `${activeBook.title} / last 7 days`
+                    : 'Entire library / last 7 days'}
+                </div>
+
                 <div className="circulation-summary">
+
                   <div>
+
                     <strong>
-                      {stats.issued}
+                      {
+                        currentIssued
+                      }
                     </strong>
 
                     <span>
                       issued
                     </span>
+
                   </div>
 
                   <div>
+
                     <strong>
-                      {stats.available}
+                      {
+                        currentAvailable
+                      }
                     </strong>
 
                     <span>
                       available
                     </span>
+
                   </div>
+
                 </div>
 
                 <div className="activity-chart">
+
                   {activity.map(
                     (item) => (
                       <div
-                        key={item.label}
+                        key={
+                          item.label
+                        }
                         className="activity-column"
                       >
+
                         <div
                           className="activity-column__bar"
                           style={{
@@ -544,25 +971,39 @@ export default function Dashboard() {
                         />
 
                         <small>
-                          {item.label}
+                          {
+                            item.label
+                          }
                         </small>
 
                         <span>
-                          {item.count}
+                          {
+                            item.count
+                          }
                         </span>
+
                       </div>
                     )
                   )}
+
                 </div>
+
               </div>
+
             </aside>
+
           </section>
 
-          {/* TRANSACTION LOG */}
+          {/* =========================
+              TRANSACTION LOG
+          ========================= */}
 
           <section className="transaction-strip">
+
             <header className="transaction-strip__head">
+
               <div>
+
                 <span className="section-index">
                   04 / TRANSACTION LOG
                 </span>
@@ -570,34 +1011,51 @@ export default function Dashboard() {
                 <h2>
                   Recent movement
                 </h2>
+
+                <p className="transaction-context">
+                  {activeBook
+                    ? `Showing movement for ${activeBook.title}.`
+                    : 'Showing movement across the full library.'}
+                </p>
+
               </div>
 
               <div className="transaction-filters">
+
                 <label className="search-line">
-                  <Search size={14} />
+
+                  <Search
+                    size={14}
+                  />
 
                   <input
                     type="search"
                     value={search}
-                    onChange={(event) =>
+                    onChange={(
+                      event
+                    ) =>
                       setSearch(
                         event.target.value
                       )
                     }
-                    placeholder="Search borrower or title"
+                    placeholder="Search borrower, title or author"
                   />
+
                 </label>
 
                 <select
                   value={
                     statusFilter
                   }
-                  onChange={(event) =>
+                  onChange={(
+                    event
+                  ) =>
                     setStatusFilter(
                       event.target.value
                     )
                   }
                 >
+
                   <option value="">
                     All statuses
                   </option>
@@ -609,12 +1067,17 @@ export default function Dashboard() {
                   <option value="returned">
                     Returned
                   </option>
+
                 </select>
+
               </div>
+
             </header>
 
             <div className="transaction-table">
+
               <div className="transaction-row transaction-row--head">
+
                 <span>
                   Book
                 </span>
@@ -630,39 +1093,65 @@ export default function Dashboard() {
                 <span>
                   Status
                 </span>
+
               </div>
 
               {filteredTransactions
-                .slice(0, 10)
+                .slice(
+                  0,
+                  10
+                )
                 .map(
-                  (transaction) => (
+                  (
+                    transaction
+                  ) => (
+
                     <div
                       className="transaction-row"
                       key={
                         transaction._id
                       }
                     >
+
                       <span>
-                        {
-                          transaction
-                            .book?.title ||
-                          'Unknown book'
-                        }
+
+                        <strong>
+                          {
+                            transaction
+                              .book
+                              ?.title ||
+                            'Unknown book'
+                          }
+                        </strong>
+
+                        <small>
+                          {
+                            transaction
+                              .book
+                              ?.author ||
+                            ''
+                          }
+                        </small>
+
                       </span>
 
                       <span>
                         {
-                          transaction.borrowerName ||
+                          transaction
+                            .borrowerName ||
                           '—'
                         }
                       </span>
 
                       <span>
-                        {transaction.issueTimestamp
-                          ? new Date(
-                              transaction.issueTimestamp
-                            ).toLocaleDateString()
-                          : '—'}
+                        {
+                          transaction
+                            .issueTimestamp
+                            ? new Date(
+                                transaction.issueTimestamp
+                              ).toLocaleDateString()
+                            : '—'
+                        }
                       </span>
 
                       <span
@@ -677,20 +1166,26 @@ export default function Dashboard() {
                           transaction.status
                         }
                       </span>
+
                     </div>
+
                   )
                 )}
 
               {!filteredTransactions.length && (
                 <div className="transaction-empty">
-                  No transactions match the
-                  current filters.
+                  No transactions match
+                  the current filters.
                 </div>
               )}
+
             </div>
+
           </section>
+
         </>
       )}
+
     </div>
   );
 }
