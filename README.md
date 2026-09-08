@@ -189,6 +189,32 @@ library-management/
 
 ---
 
+## Screenshots
+
+### Landing Page
+
+![NexLib Landing Page](screenshots/landing.png)
+
+### Collection
+
+![NexLib Collection](screenshots/collection.png)
+
+### Book Details
+
+![NexLib Book Details](screenshots/book-details.png)
+
+### QR Scanner
+
+![NexLib QR Scanner](screenshots/scanner.png)
+
+### Dashboard / Control Room
+
+![NexLib Dashboard](screenshots/dashboard.png)
+
+### Add Book
+
+![NexLib Add Book](screenshots/add-book.png)
+
 ## API Overview
 
 ### Books
