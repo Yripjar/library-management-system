@@ -1,13 +1,21 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
 
 dotenv.config();
-
 const app = express();
 
-app.use(cors());
+// ✅ CORS Configuration
+app.use(cors({
+  origin: [
+    'https://client-mu-olive-82.vercel.app',  // ← YOUR Vercel URL
+    'http://localhost:3000',
+    'http://localhost:5173'
+  ],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Routes
@@ -20,7 +28,7 @@ const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    console.log('MongoDB connected');
-    app.listen(PORT, () => console.log(`Server on ${PORT}`));
+    console.log('MongoDB connected ✅');
+    app.listen(PORT, () => console.log(`Server on port ${PORT}`));
   })
-  .catch(err => console.error('DB connection error:', err.message));
+  .catch(err => console.error('DB error:', err.message));
